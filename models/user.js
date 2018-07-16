@@ -6,7 +6,12 @@ let UserSchema = new Schema({
   location: Number,
   favoriteLiquor: String,
   favoriteDrink: String,
-  savedDrinks: []
+  savedDrinks: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Drink"
+    }
+  ]
 });
 
 let User = mongoose.model("User", UserSchema);

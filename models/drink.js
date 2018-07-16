@@ -14,11 +14,6 @@ let DrinkSchema = new Schema({
   ingredient8: String,
   ingredient9: String,
   ingredient10: String,
-  ingredient11: String,
-  ingredient12: String,
-  ingredient13: String,
-  ingredient14: String,
-  ingredient15: String,
   measure1: String,
   measure2: String,
   measure3: String,
@@ -29,11 +24,6 @@ let DrinkSchema = new Schema({
   measure8: String,
   measure9: String,
   measure10: String,
-  measure11: String,
-  measure12: String,
-  measure13: String,
-  measure14: String,
-  measure15: String,
   image: String
 });
 
