@@ -44,6 +44,7 @@ app.post("/api/newuser/:id", controllers.user.create);
 app.post("/api/newdrink/:id", controllers.drink.create);
 
 app.put("/api/user/update/:id", controllers.user.updateProfile);
+app.put("/apu/user/:id/:drinkId", controllers.user.updateDrinks);
 
 // ********** SERVER *********
 
