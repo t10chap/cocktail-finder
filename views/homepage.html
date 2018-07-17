@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Personal Express Api - Gabriel Ng</title>
+    <title>Cocktail Finder v1.0</title>
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
@@ -30,14 +30,12 @@
     <main class="wrapper">
         <!-- Sidebar -->
         <aside id="sidebar" class="sidebar">
-            <div class="sidebar-header">
-                <h3>Bootstrap Sidebar</h3>
-            </div>
-
-            <ul class="list-unstyled components">
+            <ul class="list-unstyled components hide">
                 <p>User Name
-                    <button>Log Out</button>
+                    <button name="logout">Log Out</button>
                 </p>
+
+
                 <li class="active">
                     <a href="#home">Home</a>
                 </li>
@@ -54,22 +52,32 @@
         </aside>
         <div class="section-wrap">
             <section id="search" class="search">
-                <form action=""></form>
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">Search Drinks By: </label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option value="name">Name</option>
-                        <option value="liquor">Liquor</option>
-                        <option value="category">Category</option>
-                    </select>
-                </div>
-                <input>
+                <form>
+                    <div class="form-group">
+                        <label>Search Drinks By: </label>
+                        <select class="form-control">
+                            <option value="name">Name</option>
+                            <option value="liquor">Liquor</option>
+                            <option value="category">Category</option>
+                        </select>
+                    </div>
+                    <input type="text" name="search" />
+                    <input type="submit" value="Find your drink">
                 </form>
             </section>
 
             <section id="results" class="results">
                 <section class="rendered-results">
-
+                    <div class="data">Placeholder</div>
+                    <div class="data">Placerholder</div>
+                    <div class="data">Placerholder</div>
+                    <div class="data">Placerholder</div>
+                    <div class="data">Placerholder</div>
+                    <div class="data">Placeholder</div>
+                    <div class="data">Placerholder</div>
+                    <div class="data">Placerholder</div>
+                    <!-- <div class="data">Placerholder</div>
+                    <div class="data">Placerholder</div> -->
                 </section>
             </section>
         </div>
