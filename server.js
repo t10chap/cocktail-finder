@@ -40,10 +40,10 @@ app.get("/", (req, res) => {
 
 app.get("/api/drinks/:id", controllers.drink.find);
 
-app.post("/api/users/:id", controllers.user.create);
-app.post("/api/drinks/:id", controllers.drink.create);
+app.post("/api/newuser/:id", controllers.user.create);
+app.post("/api/newdrink/:id", controllers.drink.create);
 
-app.put("/api/user/:id", controllers.user.update);
+app.put("/api/user/update/:id", controllers.user.updateProfile);
 
 // ********** SERVER *********
 

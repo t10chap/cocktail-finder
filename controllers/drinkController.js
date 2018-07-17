@@ -12,55 +12,43 @@ const findOneDrink = (req, res) => {
   });
 };
 
-// POST /api/drinks
+// POST /api/newdrink
 
 const createADrink = (req, res) => {
-  let name = req.body.name;
-  let instructions = req.body.instructions;
-  let ingredient1 = req.body.ingredient1;
-  let ingredient2 = req.body.ingredient2;
-  let ingredient3 = req.body.ingredient3;
-  let ingredient4 = req.body.ingredient4;
-  let ingredient5 = req.body.ingredient5;
-  let ingredient6 = req.body.ingredient6;
-  let ingredient7 = req.body.ingredient7;
-  let ingredient8 = req.body.ingredient8;
-  let ingredient9 = req.body.ingredient9;
-  let ingredient10 = req.body.ingredient10;
-  let measure1 = req.body.measure1;
-  let measure2 = req.body.measure2;
-  let measure3 = req.body.measure3;
-  let measure4 = req.body.measure4;
-  let measure5 = req.body.measure5;
-  let measure6 = req.body.measure6;
-  let measure7 = req.body.measure7;
-  let measure8 = req.body.measure8;
-  let measure9 = req.body.measure9;
-  let measure10 = req.body.measure10;
+  console.log("Response", req.body);
+  let newDrink = new db.Drink({
+    strName: req.body.name,
+    strInstructions: req.body.instructions,
+    strInstructions: req.body.ingredient1,
+    strIngredient2: req.body.ingredient2,
+    strIngredient3: req.body.ingredient3,
+    strIngredient4: req.body.ingredient4,
+    strIngredient5: req.body.ingredient5,
+    strIngredient6: req.body.ingredient6,
+    strIngredient7: req.body.ingredient7,
+    strIngredient8: req.body.ingredient8,
+    strIngredient9: req.body.ingredient9,
+    strIngredient10: req.body.ingredient10,
+    strMeasure1: req.body.measure1,
+    strMeasure2: req.body.measure2,
+    strMeasure3: req.body.measure3,
+    strMeasure4: req.body.measure4,
+    strMeasure5: req.body.measure5,
+    strMeasure6: req.body.measure6,
+    strMeasure7: req.body.measure7,
+    strMeasure8: req.body.measure8,
+    strMeasure9: req.body.measure9,
+    strMeasure10: req.body.measure10,
+    strImage: req.body.image
+  });
 
-  db.Drink.create({
-    name: name,
-    instructions: instructions,
-    ingredient1: ingredient1,
-    ingredient2: ingredient2,
-    ingredient3: ingredient3,
-    ingredient4: ingredient4,
-    ingredient5: ingredient5,
-    ingredient6: ingredient6,
-    ingredient7: ingredient7,
-    ingredient8: ingredient8,
-    ingredient9: ingredient9,
-    ingredient10: ingredient10,
-    measure1: measure1,
-    measure2: measure2,
-    measure3: measure3,
-    measure4: measure4,
-    measure5: measure5,
-    measure6: measure6,
-    measure7: measure7,
-    measure8: measure8,
-    measure9: measure9,
-    measure10: measure10
+  //  save book to database
+  newDrink.save((err, drink) => {
+    if (err) {
+      console.log(err);
+    }
+    console.log("Saved ", drink);
+    res.json(drink);
   });
 };
 

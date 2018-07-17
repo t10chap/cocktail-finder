@@ -16,13 +16,13 @@ const createANewUser = (req, res) => {
   };
 };
 
-// PUT /api/newuser/:id
+// PUT /api/user/update/:id
 
 const updateProfile = (req, res) => {
   let id = req.params.id;
   let update = req.body;
 
-  db.findOneAndUpdate({ _id: id }, update, { new: true }, (err, user) => {
+  db.User.findOneAndUpdate({ _id: id }, update, { new: true }, (err, user) => {
     if (err) {
       return console.log(err);
     }
@@ -30,7 +30,34 @@ const updateProfile = (req, res) => {
   });
 };
 
+// PUT /api/user/:id/:drinkid
+
+const updateSavedDrinks = (req, res) => {
+  let userId = req.params.id;
+  let drinkId = req.params.drinkid;
+
+  db.User.findById({ _id: id }, (err, user) => {
+    db.Drink.findOne({ _id: drinkId }, (err, drink) => {
+      if (drink) {
+        console.log("Drink to add: ", drink);
+        user.savedDrinks.push(drink);
+      } else {
+        let newDrink = new db.Drink(req.body);
+        user.savedDrinks.push(newDrink);
+        newDrink.save((err, drink) => {
+          if (err) {
+            console.log(err);
+          }
+          console.log("Saved ", drink);
+          res.json(drink);
+        });
+      }
+    });
+  });
+};
+
 module.exports = {
   create: createANewUser,
-  update: updateProfile
+  updateProfile: updateProfile,
+  updateDrinks: updatedSavedDrinks
 };
