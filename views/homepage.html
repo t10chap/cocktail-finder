@@ -29,7 +29,7 @@
     </header>
     <main class="wrapper">
         <!-- Sidebar -->
-        <aside id="sidebar">
+        <aside id="sidebar" class="sidebar">
             <div class="sidebar-header">
                 <h3>Bootstrap Sidebar</h3>
             </div>
@@ -54,11 +54,23 @@
         </aside>
         <div class="section-wrap">
             <section id="search" class="search">
-                <p> helloe friends</p>
+                <form action=""></form>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Search Drinks By: </label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option value="name">Name</option>
+                        <option value="liquor">Liquor</option>
+                        <option value="category">Category</option>
+                    </select>
+                </div>
+                <input>
+                </form>
             </section>
 
             <section id="results" class="results">
-                <p> helloe friends</p>
+                <section class="rendered-results">
+
+                </section>
             </section>
         </div>
     </main>
