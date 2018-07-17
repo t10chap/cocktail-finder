@@ -3,6 +3,8 @@
 body {
   box-sizing: border-box;
   font: 16px;
+  position: fixed;
+  width: 100vw;
 }
 
 a {
@@ -28,54 +30,61 @@ a {
   padding: 0 10px;
 }
 
-/* ********* Side Bar ********* */
+/* ********* Main wrapper ********* */
 
 .wrapper {
   display: flex;
   flex-direction: row-reverse;
   width: 100%;
+  height: 100vh;
   align-items: stretch;
 }
 
-#sidebar {
-  min-width: 250px;
-  max-width: 250px;
+/* ********* Side Bar ********* */
+
+.sidebar {
+  width: 0;
   min-height: 100vh;
   background: gray;
   color: #fff;
   transition: all 0.3s;
+  border-left: 2px solid rgb(13, 207, 241);
 }
 
-#sidebar.active {
-  margin-right: -250px;
+.sidebar.active {
+  width: 250px;
 }
 
-#sidebar .sidebar-header {
+.hide {
+  display: none;
+}
+
+.sidebar .sidebar-header {
   padding: 20px;
   background: #6d7fcc;
 }
 
-#sidebar ul.components {
+.sidebar ul.components {
   padding: 20px 0;
   border-bottom: 1px solid #47748b;
 }
 
-#sidebar ul p {
+.sidebar p {
   color: #fff;
   padding: 10px;
 }
 
-#sidebar ul li a {
+.sidebar a {
   padding: 10px;
   font-size: 1.1em;
   display: block;
 }
-#sidebar ul li a:hover {
+.sidebar a:hover {
   color: #7386d5;
   background: #fff;
 }
 
-#sidebar ul li.active > a,
+.sidebar ul li.active > a,
 a[aria-expanded="true"] {
   color: #fff;
   background: #6d7fcc;
@@ -101,24 +110,62 @@ a:focus {
   display: flex;
   flex-direction: column;
   width: 100%;
+  border-top: 2px solid rgb(13, 207, 241);
 }
 
 /* ********* Seach ********* */
 
 .search {
-  width: 97%;
-  height: 70%;
+  width: 100%;
+  height: 40%;
   align-self: flex-end;
-  background-color: green;
-  margin: 10px auto;
+  background-color: rgb(196, 196, 196);
+}
+
+.search form {
+  width: 50%;
+  height: 50%;
+  text-align: center;
+  margin: 50px auto;
+}
+
+.search label {
+  font-size: 2em;
+}
+
+.form-control {
+  font-size: 1.2em;
+}
+
+.search input[type="text"] {
+  width: 300px;
+  font-size: 1em;
+  padding-right: 0.2px;
 }
 
 /* ********* Results ********* */
 
 .results {
-  width: 97%;
-  height: 100%;
+  width: 100%;
+  height: 97%;
   align-self: flex-end;
-  background-color: green;
+  background-color: rgb(196, 196, 196);
+}
+
+.rendered-results {
+  background-color: pink;
+  width: 98%;
+  height: 98%;
+  margin: 10px auto;
+  border: 2px solid black;
+  display: flex;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+}
+
+.data {
+  width: 275px;
+  height: 325px;
+  border: 2px solid green;
   margin: 10px auto;
 }
