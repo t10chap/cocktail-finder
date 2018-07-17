@@ -1,16 +1,31 @@
+body{
+  text-align: center;
+}
+
 a{
   text-decoration: none;
 }
 
+.mainContainer{
+  display: flex;
+}
+
+/* Let's Drink Button Style
+-------------------------------------------------- */
 .landContainer{
-  padding-top: 50%;
+  padding-top: 32%;
 }
 
 .drinkBtn{
-  border: solid 2px black;
   padding: 8px;
   font-size: 38px;
   background-color: black;
+}
+
+/* Sign In/ Sign Up Style
+-------------------------------------------------- */
+.getStarted{
+  background-color: grey;
 }
 
 /* Sticky footer styles

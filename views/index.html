@@ -3,26 +3,50 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-    <link rel="stylesheet" href="../public/styles/index.css">
+    <link rel="stylesheet" type="text/css" href="/styles/index.css">
   </head>
+  <body>
+    <div class="mainContainer">
 
-    <body class = "text-center">
-    <div class = "landContainer" class = "d-flex h-100 p-3 mx-auto flex-column">
-      <main role="main" class="inner cover">
-        <p class="lead">
-          <a href="#" class="drinkBtn">Let's Drink!</a>
-        </p>
-      </main>
+<!-- Lets Drink Button -->
+      <div class = "landContainer" class = "d-flex h-100 p-3 mx-auto flex-column">
+        <main role="main" class="inner cover">
+          <p class="lead">
+            <a href="#" class="drinkBtn">Let's Drink!</a>
+          </p>
+        </main>
+      </div>
+
+<!-- Sign In/ Sign Up -->
+    <div class="getStarted">
+      <form class="signin">
+        <input id="username" placeholder="Username*">
+        <input id="password" placeholder="Password*">
+        <button>Sign In</button>
+      </form>
+      <div class="or">OR</div>
+      <form class="signup">
+        <div>Enter desired Username</div>
+        <input id="newUser" placeholder="Username*">
+        <div>Enter desired Password</div>
+        <input id="newPass" placeholder="Password*">
+        <div>Confirm Password</div>
+        <input id="confirmPass" placeholder="Password*">
+      </form>
     </div>
 
+
+
+<!-- Sticky Footer -->
     <footer class="footer">
     <div class="container">
-      <span class="text-muted">&copy Gabriel Ng, Tevin Rawls, Chris Anderson</span>
+      <span>&copy Gabriel Ng, Tevin Rawls, Chris Anderson</span>
     </div>
-  </footer>
+    </footer>
+  </div>
 
-
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="/scripts/index.js" type="text/javascript"></script>
   </body>
 </html>
