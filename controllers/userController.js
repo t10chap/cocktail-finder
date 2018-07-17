@@ -59,5 +59,5 @@ const updateSavedDrinks = (req, res) => {
 module.exports = {
   create: createANewUser,
   updateProfile: updateProfile,
-  updateDrinks: updatedSavedDrinks
+  updateDrinks: updateSavedDrinks
 };

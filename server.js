@@ -26,7 +26,7 @@ app.use(function(req, res, next) {
 app.use(express.static("public"));
 
 let db = require("./models");
-let controlelrs = require("./controllers");
+let controllers = require("./controllers");
 
 // ******** ROUTES ***********
 
@@ -34,6 +34,10 @@ let controlelrs = require("./controllers");
 
 app.get("/", (req, res) => {
   res.sendFile("views/index.html", { root: __dirname });
+});
+
+app.get("/homepage", (req, res) => {
+  res.sendFile("views/homepage.html", { root: __dirname });
 });
 
 // API Endpoints
@@ -50,5 +54,5 @@ app.put("/apu/user/:id/:drinkId", controllers.user.updateDrinks);
 
 let port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log(`Server is running on ${port}`);
+  console.log(`Server is running on port: ${port}`);
 });
