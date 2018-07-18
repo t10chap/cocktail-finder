@@ -127,7 +127,7 @@ const render = (arr, index, numberToAppend) => {
         <p>${
           arr[i].strInstructions === undefined ? "" : arr[i].strInstructions
         }</p>
-        
+
         <ul>
         </ul>
         <button id="save" data-value="${arr[i].strDrink}">Save!</button>
