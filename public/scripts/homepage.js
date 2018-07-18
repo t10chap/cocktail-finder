@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  //Sidebar animation
   let sidebarShown = false;
   $("#sidebar-icon").click(function() {
     $(this).toggleClass("open");
@@ -26,24 +27,93 @@ $(document).ready(function() {
   let randomSearchUrl =
     "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
+  //Used for searching by name and random
   const displayDrink = response => {
-    // var drinkArr = response.drinks;
-    // drinkIndex = 0;
-    // currentDrink = drinkArr[drinkIndex];
+    let drinkArr = response.drinks;
+    let drinkIndex = 0;
+    let currentSearchSelection = $(".form-control").val();
+
+    $(".results").empty()
+      .append(`<i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+                <h3>Results</h3>
+                <i class="fa fa-arrow-right fa-2x" aria-hidden="true">
+                </i>
+                <section class="rendered-results">
+                </section>`);
+    if (currentSearchSelection == "name") {
+      render(drinkArr, drinkIndex, 2);
+    } else if (currentSearchSelection == "random") {
+      render(drinkArr, drinkIndex, 1);
+    }
+
+    $("#results").on("click", ".back", function() {
+      console.log("clicked");
+      console.log(drinkIndex);
+      if (drinkIndex == 0) {
+        console.log("No previous results");
+      } else {
+        drinkIndex -= 2;
+        render(drinkArr, drinkIndex, 2);
+      }
+    });
+
+    $("#results").on("click", ".forward", function() {
+      console.log("clicked");
+      console.log(drinkIndex);
+      drinkIndex += 2;
+      render(drinkArr, drinkIndex, 2);
+    });
+  };
+
+  //Used for seaching by ingredient
+  const displayDrinksList = response => {
+    let drinkArr = response.drinks;
+    let drinkIndex = 0;
+    let currentSearchSelection = $(".form-control").val();
+    $(".results").empty()
+      .append(`<i class="fa fa-arrow-left fa-2x back" aria-hidden="true"></i>
+                <h3>Results</h3>
+                <i class="fa fa-arrow-right fa-2x forward" aria-hidden="true">
+                </i>
+                <section class="rendered-results">
+                </section>`);
+    render(drinkArr, drinkIndex, 6);
+    $("#results").on("click", ".back", function() {
+      if (drinkIndex == 0) {
+        console.log("clicked");
+        console.log(drinkIndex);
+        console.log("No previous results");
+      } else {
+        drinkIndex -= 6;
+        render(drinkArr, drinkIndex, 6);
+      }
+    });
+
+    $("#results").on("click", ".forward", function() {
+      console.log("clicked");
+      console.log(drinkIndex);
+      drinkIndex += 6;
+      render(drinkArr, drinkIndex, 6);
+    });
+  };
+
+  //Rendering drinks
+  const render = (arr, index, numberToAppend) => {
     $(".rendered-results").empty();
-    response.drinks.forEach(drink => {
+    for (let i = index; i < index + numberToAppend; i++) {
       $(".rendered-results").append(`
         <div class="data">
-        <h6>${drink.strDrink}</h6>
-        <img src="${drink.strDrinkThumb}">
-        <p>${drink.strInstructions}</p>
+        <h6>${arr[i].strDrink}</h6>
+        <img src="${arr[i].strDrinkThumb}">
+        <p>${arr[i].strInstructions}</p>
         <ul>
         </ul>
+        <button id="save">Save!</button>
         </div>
         `);
-      console.log(drink.idDrink);
 
-      let arrOfVals = Object.values(drink);
+      console.log(arr[i].idDrink);
+      let arrOfVals = Object.values(arr[i]);
 
       for (let i = 9; i <= 23; i++) {
         if (
@@ -57,28 +127,8 @@ $(document).ready(function() {
               `);
         }
       }
-    });
+    }
   };
-
-  const displaySearchList = response => {
-    let drinkArr = response.drinks,
-     drinksIndex = 0,
-     currentDrink = drinkArr[drinksIndex];
-    $(".rendered-results").empty();
-    response.drinks.forEach(drink => {
-      while(drinksIndex < 6){
-      $(".rendered-results").append(`
-        <div class="data">
-        <h6>${drink.strDrink}</h6>
-        <img src="${drink.strDrinkThumb}">
-        <ul>
-        </ul>
-        </div>
-        `);
-        drinksIndex++;
-      }
-  })
-};
 
   const displayError = (err1, err2, err3) => {
     console.log(err1);
