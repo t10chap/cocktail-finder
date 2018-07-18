@@ -40,6 +40,9 @@ app.get("/homepage", (req, res) => {
   res.sendFile("views/homepage.html", { root: __dirname });
 });
 
+app.get("/dashboard", (req, res) => {
+  res.sendFile("views/dashboard.html", { root: __dirname });
+});
 // API Endpoints
 
 app.get("/api/drinks/:id", controllers.drink.find);

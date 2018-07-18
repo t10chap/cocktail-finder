@@ -1,4 +1,4 @@
-  @import url("https://fonts.googleapis.com/css?family=Raleway:400,600");
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,600");
 
 /* ********* General Styles ********* */
 
@@ -176,6 +176,11 @@ p {
   height: 320px;
   border: 2px solid green;
   margin: 10px auto;
+}
+
+.data img {
+  width: 100px;
+  height: 100px;
 }
 
 /* ********* Animated Hamburger Menu ********* */
