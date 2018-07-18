@@ -27,29 +27,34 @@ $(document).ready(function() {
     "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
   const displaySearch = response => {
-      $(".rendered-results").empty();
-      // <img src="${drink.strDrinkThumb}">
+    $(".rendered-results").empty();
     response.drinks.forEach(drink => {
       $(".rendered-results").append(`
         <div class="data">
         <h6>${drink.strDrink}</h6>
+        <img src="${drink.strDrinkThumb}">
         <p>${drink.strInstructions}</p>
         <ul>
         </ul>
         </div>
         `);
+      console.log(drink.idDrink);
 
-        let arrOfVals = Object.values(drink);
+      let arrOfVals = Object.values(drink);
 
-        for (let i=9; i<=23; i++) {
-          if (arrOfVals[i] != "") {
-            $(".rendered-results").append(`
-              <li>${arrOfVals[i]} : ${arrOfVals[i+15]}</li>
-              `)
-          }
+      for (let i = 9; i <= 23; i++) {
+        if (
+          arrOfVals[i] == "" ||
+          arrOfVals[i] == null ||
+          arrOfVals[i].length == 0
+        ) {
+        } else {
+          $(".rendered-results ul").append(`
+              <li>${arrOfVals[i]} : ${arrOfVals[i + 15]}</li>
+              `);
         }
-
-    })
+      }
+    });
   };
 
   const displayError = (err1, err2, err3) => {

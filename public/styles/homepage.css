@@ -4,7 +4,7 @@
 
 body {
   box-sizing: border-box;
-  font: 16px;
+  font-size: 16px;
   font-family: "Raleway", sans;
 }
 
@@ -50,7 +50,7 @@ h2 {
 
 .sidebar {
   width: 0;
-  height: 1051px;
+  height: 100%;
   background: black;
   color: white;
   text-align: center;
@@ -163,19 +163,23 @@ p {
 
 .rendered-results {
   width: 98%;
-  height: 80%;
-  margin: 10px auto;
-  /* border: 2px solid black; */
+  height: 100vh;
+  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  overflow: hidden;
 }
 
 .data {
-  /* width: 300px; */
-  width: 19%;
-  height: 320px;
+  width: 30%;
+  height: 500px;
   border: 2px solid green;
   margin: 10px auto;
+}
+
+.data img {
+  height: 150px;
+  width: 150px;
 }
 
 /* ********* Animated Hamburger Menu ********* */
