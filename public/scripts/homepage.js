@@ -1,6 +1,7 @@
 $(document).ready(function() {
   let sidebarShown = false;
-  $("#sidebarCollapse").on("click", function() {
+  $("#nav-icon2").click(function() {
+    $(this).toggleClass("open");
     if (!sidebarShown) {
       $("#sidebar").toggleClass("active");
       setTimeout(function() {

@@ -1,5 +1,5 @@
-$(document).ready(function(){
-  $(".mainBtn").click(function(){
+$(document).ready(function() {
+  $(".mainBtn").click(function() {
     $(".formContainer").fadeIn(900);
   });
 });

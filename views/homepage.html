@@ -10,33 +10,48 @@
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" type="text/css" href="/styles/fonts.css"> -->
     <link rel="stylesheet" type="text/css" href="/styles/homepage.css">
 
 
 </head>
 
 <body>
+    <!-- Header -->
     <header>
         <nav class="navbar">
             <h2>What To Drink</h2>
             <ul>
                 <li>
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
-                        <i class="fas fa-align-left"></i>
+                    <!-- <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fa fa-align-left"></i>
                         <span>Toggle Sidebar</span>
-                    </button>
+                    </button> -->
+                    <div id="nav-icon2">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </li>
             </ul>
         </nav>
     </header>
+
+    <!-- Main Content -->
     <main class="wrapper">
+
         <!-- Sidebar -->
         <aside id="sidebar" class="sidebar">
             <ul class="list-unstyled components hide">
                 <p>User Name
-                    <button name="logout">Log Out</button>
                 </p>
-                <li class="active">
+
+                <button name="logout">Log Out</button>
+
+                <li>
                     <a href="#home">Home</a>
                 </li>
                 <li>
@@ -66,6 +81,7 @@
                 </form>
             </section>
 
+            <!-- Results Container -->
             <section id="results" class="results">
                 <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
                 <h3>Results</h3>
