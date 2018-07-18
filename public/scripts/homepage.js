@@ -60,7 +60,25 @@ $(document).ready(function() {
     });
   };
 
-  const displaySearchList = response => {};
+  const displaySearchList = response => {
+    let drinkArr = response.drinks,
+     drinksIndex = 0,
+     currentDrink = drinkArr[drinksIndex];
+    $(".rendered-results").empty();
+    response.drinks.forEach(drink => {
+      while(drinksIndex < 6){
+      $(".rendered-results").append(`
+        <div class="data">
+        <h6>${drink.strDrink}</h6>
+        <img src="${drink.strDrinkThumb}">
+        <ul>
+        </ul>
+        </div>
+        `);
+        drinksIndex++;
+      }
+  })
+};
 
   const displayError = (err1, err2, err3) => {
     console.log(err1);
@@ -90,13 +108,13 @@ $(document).ready(function() {
 
     if (currentSearchSelection == "name") {
       url = searchByNameUrl + userSearch;
-      displayResults();
+      displayResults;
     } else if (currentSearchSelection == "liquor") {
       url = searchByIngredientUrl + userSearch;
-      displayResultsList();
+      displayResultsList;
     } else if (currentSearchSelection == "random") {
       url = randomSearchUrl;
-      displayResults();
+      displayResults;
     }
   });
 });
