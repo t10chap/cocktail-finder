@@ -60,16 +60,17 @@ $(document).ready(function() {
     });
   };
 
-  const displaySearchList = response => {
-    let drinkArr = response.drinks,
-     drinksIndex = 0,
-     currentDrink = drinkArr[drinksIndex];
+  const displayDrinksList = response => {
+    let drinkArr = response.drinks;
+    let drinksIndex = 0;
+    // let currentDrink = drinkArr[drinksIndex];
+    let arrOfVals = Object.values(drinkArr);
     $(".rendered-results").empty();
     response.drinks.forEach(drink => {
       while(drinksIndex < 6){
       $(".rendered-results").append(`
         <div class="data">
-        <h6>${drink.strDrink}</h6>
+        <h6>${i[]}</h6>
         <img src="${drink.strDrinkThumb}">
         <ul>
         </ul>
