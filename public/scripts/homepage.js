@@ -26,10 +26,10 @@ $(document).ready(function() {
   let randomSearchUrl =
     "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
-  const displaySearch = response => {
-    var drinkArr = response.drinks;
-    drinkIndex = 0;
-    currentDrink = drinkArr[drinkIndex];
+  const displayDrink = response => {
+    // var drinkArr = response.drinks;
+    // drinkIndex = 0;
+    // currentDrink = drinkArr[drinkIndex];
     $(".rendered-results").empty();
     response.drinks.forEach(drink => {
       $(".rendered-results").append(`
@@ -92,29 +92,30 @@ $(document).ready(function() {
     let currentSearchSelection = $(".form-control").val();
     let userSearch = $("input[name='search']").val();
 
-    let displayResults = $.ajax({
-      method: "GET",
-      url: url,
-      success: displaySearch,
-      error: displayError
-    });
-
-    let displayResultsList = $.ajax({
-      method: "GET",
-      url: url,
-      success: displaySearchList,
-      error: displayError
-    });
-
     if (currentSearchSelection == "name") {
       url = searchByNameUrl + userSearch;
-      displayResults;
+      $.ajax({
+        method: "GET",
+        url: url,
+        success: displayDrink,
+        error: displayError
+      });
     } else if (currentSearchSelection == "liquor") {
       url = searchByIngredientUrl + userSearch;
-      displayResultsList;
+      $.ajax({
+        method: "GET",
+        url: url,
+        success: displayDrinksList,
+        error: displayError
+      });
     } else if (currentSearchSelection == "random") {
       url = randomSearchUrl;
-      displayResults;
+      $.ajax({
+        method: "GET",
+        url: url,
+        success: displayDrink,
+        error: displayError
+      });
     }
   });
 });
