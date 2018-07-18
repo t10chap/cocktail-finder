@@ -27,6 +27,9 @@ $(document).ready(function() {
     "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
   const displaySearch = response => {
+    var drinkArr = response.drinks;
+    drinkIndex = 0;
+    currentDrink = drinkArr[drinkIndex];
     $(".rendered-results").empty();
     response.drinks.forEach(drink => {
       $(".rendered-results").append(`
@@ -57,6 +60,8 @@ $(document).ready(function() {
     });
   };
 
+  const displaySearchList = response => {};
+
   const displayError = (err1, err2, err3) => {
     console.log(err1);
     console.log(err2);
@@ -69,19 +74,29 @@ $(document).ready(function() {
     let currentSearchSelection = $(".form-control").val();
     let userSearch = $("input[name='search']").val();
 
-    if (currentSearchSelection == "name") {
-      url = searchByNameUrl + userSearch;
-    } else if (currentSearchSelection == "liquor") {
-      url = searchByIngredientUrl + userSearch;
-    } else if (currentSearchSelection == "random") {
-      url = randomSearchUrl;
-    }
-
-    $.ajax({
+    let displayResults = $.ajax({
       method: "GET",
       url: url,
       success: displaySearch,
       error: displayError
     });
+
+    let displayResultsList = $.ajax({
+      method: "GET",
+      url: url,
+      success: displaySearchList,
+      error: displayError
+    });
+
+    if (currentSearchSelection == "name") {
+      url = searchByNameUrl + userSearch;
+      displayResults();
+    } else if (currentSearchSelection == "liquor") {
+      url = searchByIngredientUrl + userSearch;
+      displayResultsList();
+    } else if (currentSearchSelection == "random") {
+      url = randomSearchUrl;
+      displayResults();
+    }
   });
 });
