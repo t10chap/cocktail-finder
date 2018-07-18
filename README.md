@@ -2,4 +2,4 @@
 
 ## cocktail-finder
 
-By Gabriel Ng, Tevin Rawls, Chris Anderson
+By Gabriel Ng and Tevin Rawls
