@@ -59,7 +59,7 @@ body {
 }
 
 .formContainer {
-  width: 53%;
+  width: 52.7%;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -67,17 +67,17 @@ body {
 #or {
   padding-top: 140px;
   color: white;
-  margin-right: 120px;
+  margin-right: 15.5%;
   float: left;
 }
 
 .form {
   width: 100%;
-  max-width: 240px;
+  max-width: 31.6%;
   padding: 15px;
   margin: 0 auto;
   background-color: rgba(200, 200, 200, 0.9);
-  margin-right: 120px;
+  margin-right: 15.5%;
   float: left;
 }
 
