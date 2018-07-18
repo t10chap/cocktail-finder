@@ -1,11 +1,12 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway:400,600");
+  @import url("https://fonts.googleapis.com/css?family=Raleway:400,600");
 
 /* ********* General Styles ********* */
 
 body {
   box-sizing: border-box;
-  font-size: 16px;
+  font: 16px;
   font-family: "Raleway", sans;
+  background-color: rgb(196, 196, 196);
 }
 
 a {
@@ -50,7 +51,7 @@ h2 {
 
 .sidebar {
   width: 0;
-  height: 100%;
+  height: 1051px;
   background: black;
   color: white;
   text-align: center;
@@ -154,7 +155,6 @@ p {
   height: 100%;
   text-align: center;
   align-self: flex-end;
-  background-color: rgb(196, 196, 196);
 }
 
 .results i {
@@ -163,23 +163,19 @@ p {
 
 .rendered-results {
   width: 98%;
-  height: 100vh;
-  margin: 0 auto;
+  height: 80%;
+  margin: 10px auto;
+  /* border: 2px solid black; */
   display: flex;
   flex-wrap: wrap;
-  overflow: hidden;
 }
 
 .data {
-  width: 30%;
-  height: 500px;
+  /* width: 300px; */
+  width: 19%;
+  height: 320px;
   border: 2px solid green;
   margin: 10px auto;
-}
-
-.data img {
-  height: 150px;
-  width: 150px;
 }
 
 /* ********* Animated Hamburger Menu ********* */
