@@ -42,7 +42,7 @@ const createADrink = (req, res) => {
     strImage: req.body.image
   });
 
-  //  save book to database
+  //  save drink to database
   newDrink.save((err, drink) => {
     if (err) {
       console.log(err);

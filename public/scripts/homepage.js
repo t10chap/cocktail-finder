@@ -21,13 +21,6 @@ $("#sidebar-icon").click(function() {
   }
 });
 
-let searchByNameUrl =
-  "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
-let searchByIngredientUrl =
-  "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=";
-let searchByIdUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
-let randomSearchUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
-
 //Used for searching by name and random
 const displayDrink = response => {
   let drinkArr = response.drinks;
@@ -130,7 +123,8 @@ const render = (arr, index, numberToAppend) => {
 
         <ul>
         </ul>
-        <button id="save" data-value="${arr[i].strDrink}">Save!</button>
+        <button id="save" data-value="${arr[i].strDrink}" 
+        data-id="${arr[i].idDrink}">Save!</button>
         </div>
         `);
 
@@ -166,12 +160,37 @@ const renderSavedDrinks = array => {
   });
 };
 
+//Create Database Model
+const createModel = response => {
+  $.ajax({
+    method: "POST",
+    url: "http://localhost:3000/api/user/:id/:drinkId",
+    data: response[0],
+    error: displayError
+  });
+};
+
+let searchByIdUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
+
 //Listen for save click
 $("#results").on("click", "#save", function() {
   console.log("clicked save");
   savedDrinks.push($(this).data("value"));
   renderSavedDrinks(savedDrinks);
+
+  $.ajax({
+    method: "GET",
+    url: searchByIdUrl + $(this).data("id"),
+    success: createModel,
+    error: displayError
+  });
 });
+
+let searchByNameUrl =
+  "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
+let searchByIngredientUrl =
+  "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=";
+let randomSearchUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
 $("input[type='submit']").on("click", function(e) {
   e.preventDefault();

@@ -47,11 +47,11 @@ app.get("/dashboard", (req, res) => {
 
 app.get("/api/drinks/:id", controllers.drink.find);
 
-app.post("/api/newuser/:id", controllers.user.create);
-app.post("/api/newdrink/:id", controllers.drink.create);
+app.post("/api/newuser", controllers.user.create);
+app.post("/api/newdrink", controllers.drink.create);
 
 app.put("/api/user/update/:id", controllers.user.updateProfile);
-app.put("/apu/user/:id/:drinkId", controllers.user.updateDrinks);
+app.put("/api/user/:id/:drinkId", controllers.user.updateDrinks);
 
 // ********** SERVER *********
 
