@@ -26,15 +26,44 @@ $(document).ready(function() {
   let randomSearchUrl =
     "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
-  const displaySearch = response => {};
+  const displaySearch = response => {
+      $(".rendered-results").empty();
+      // <img src="${drink.strDrinkThumb}">
+    response.drinks.forEach(drink => {
+      $(".rendered-results").append(`
+        <div class="data">
+        <h6>${drink.strDrink}</h6>
+        <p>${drink.strInstructions}</p>
+        <ul>
+        </ul>
+        </div>
+        `);
 
-  const displayError = (err1, err2, err3) => {};
+        let arrOfVals = Object.values(drink);
+
+        for (let i=9; i<=23; i++) {
+          if (arrOfVals[i] != "") {
+            $(".rendered-results").append(`
+              <li>${arrOfVals[i]} : ${arrOfVals[i+15]}</li>
+              `)
+          }
+        }
+
+    })
+  };
+
+  const displayError = (err1, err2, err3) => {
+    console.log(err1);
+    console.log(err2);
+    console.log(err3);
+  };
 
   $("input[type='submit']").on("click", function(e) {
     e.preventDefault();
     let url = "";
     let currentSearchSelection = $(".form-control").val();
     let userSearch = $("input[name='search']").val();
+
     if (currentSearchSelection == "name") {
       url = searchByNameUrl + userSearch;
     } else if (currentSearchSelection == "liquor") {
