@@ -16,8 +16,7 @@ const getUsers = (req, res) => {
 // GET /api/users/:username
 
 const findOneUser = (req, res) => {
-  let username = req.params.username;
-  db.User.findOne({ username: username })
+  db.User.findOne({ username: req.params.username })
     .populate("drink")
     .exec((err, foundUser) => {
       if (err) {
@@ -30,18 +29,31 @@ const findOneUser = (req, res) => {
 // POST /api/newuser
 
 const createANewUser = (req, res) => {
-  let name = req.body.name;
-  let location = req.body.location;
-  let favLiquor = req.body.liquor;
-  let favDrink = req.body.drink;
+  db.User.findOne({ username: req.body.username }, (err, foundUser) =>{
+    if(err) {
+      return console.log(err);
+    } else if(foundUser){
+      res.status(400);
+    }
 
-  db.User.create = {
-    name: name,
-    location: location,
-    favoriteLiquor: favLiquor,
-    favoriteDrink: favDrink,
-    savedDrinks: []
-  };
+    let newUser = {
+      name: req.body.name,
+      username: req.body.username,
+      password: req.body.password,
+      location: req.body.location,
+      favoriteLiquor: req.body.favoriteLiquor,
+      favoriteDrink: req.body.favoriteDrink
+    };
+
+    db.User.create(newUser, (err, createdUser) => {
+      console.log(createdUser);
+      if(err){
+        return console.log(err);
+      } else{
+        res.json(createdUser);
+      }
+    });
+  });
 };
 
 // PUT /api/user/update/:username

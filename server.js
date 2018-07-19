@@ -34,7 +34,7 @@ let controllers = require("./controllers");
 // HTML route
 
 app.get("/", (req, res) => {
-  res.sendFile("views/index.html", { root: __dirname });
+  res.sendFile("views/login.html", { root: __dirname });
 });
 
 app.get("/homepage", (req, res) => {
