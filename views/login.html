@@ -23,16 +23,18 @@
 
     <!-- Register or sign in forms -->
     <div class="formContainer hide">
-      <form class="form">
+      <!-- <form class="form"> -->
+      <div class="form">
         <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
+        <h3 id="errLbl"></h3>
         <input type="text" name="username" id="inputUser" class="form-control" placeholder="Username*" required autofocus>
         <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password*" required>
         <div class="checkbox mb-3">
           <input type="checkbox" value="remember-me"> Remember me
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
-
+        <button class="signin btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <!-- </form> -->
+      </div>
       <h1 id="or">Or</h1>
 
       <form class="form">
@@ -47,7 +49,7 @@
         <div class="checkbox mb-3">
           <input type="checkbox" value="remember-me"> Remember me
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+        <button class="signup btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
       </form>
     </div>
 

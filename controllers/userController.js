@@ -7,7 +7,8 @@ const getUsers = (req, res) => {
     .populate("drink")
     .exec((err, users) => {
       if (err) {
-        return console.log(err);
+        console.log(err);
+        return err;
       }
       res.json(users);
     });
@@ -20,7 +21,8 @@ const findOneUser = (req, res) => {
     .populate("drink")
     .exec((err, foundUser) => {
       if (err) {
-        return console.log(err);
+        console.log(err);
+        return err;
       }
       res.json(foundUser);
     });
@@ -31,24 +33,27 @@ const findOneUser = (req, res) => {
 const createANewUser = (req, res) => {
   db.User.findOne({ username: req.body.username }, (err, foundUser) =>{
     if(err) {
-      return console.log(err);
+      console.log(err);
+      return err;
+
     } else if(foundUser){
       res.status(400);
     }
+    //
+    // let newUser = {
+    //   name: req.body.name,
+    //   username: req.body.username,
+    //   password: req.body.password,
+    //   location: req.body.location,
+    //   favoriteLiquor: req.body.favoriteLiquor,
+    //   favoriteDrink: req.body.favoriteDrink
+    // };
 
-    let newUser = {
-      name: req.body.name,
-      username: req.body.username,
-      password: req.body.password,
-      location: req.body.location,
-      favoriteLiquor: req.body.favoriteLiquor,
-      favoriteDrink: req.body.favoriteDrink
-    };
-
-    db.User.create(newUser, (err, createdUser) => {
+    db.User.create(req.body, (err, createdUser) => {
       console.log(createdUser);
       if(err){
-        return console.log(err);
+        console.log(err);
+        return err;
       } else{
         res.json(createdUser);
       }
@@ -68,9 +73,9 @@ const updateProfile = (req, res) => {
     { new: true },
     (err, user) => {
       if (err) {
-        return console.log(err);
-      }
-      res.json(user);
+        console.log(err);
+        return err;
+      } res.json(user);
     }
   );
 };
@@ -91,6 +96,8 @@ const updateSavedDrinks = (req, res) => {
         newDrink.save((err, drink) => {
           if (err) {
             console.log(err);
+            return err;
+
           }
           console.log("Saved ", drink);
           res.json(drink);
