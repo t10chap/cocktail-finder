@@ -1,8 +1,12 @@
 // $(document).ready(function() {
-//User saved drinks
+
+// ********** Render username **********
+$("#username").html("Abcd");
+
+// ********** User saved drinks **********
 let savedDrinks = [];
 
-//Sidebar animation
+// ********* Sidebar animation **********
 let sidebarShown = false;
 $("#sidebar-icon").click(function() {
   $(this).toggleClass("open");
@@ -21,7 +25,7 @@ $("#sidebar-icon").click(function() {
   }
 });
 
-//Used for searching by name and random
+// ********** Used for searching by name and random **********
 const displayDrink = response => {
   let drinkArr = response.drinks;
   let drinkIndex = 0;
@@ -66,7 +70,7 @@ const displayDrink = response => {
   });
 };
 
-//Used for seaching by ingredient
+// ********** Used for seaching by ingredient **********
 const displayDrinksList = response => {
   let drinkArr = response.drinks;
   let drinkIndex = 0;
@@ -109,7 +113,7 @@ const displayDrinksList = response => {
   });
 };
 
-//Rendering drinks
+// ********** Rendering drinks**********
 const render = (arr, index, numberToAppend) => {
   $(".rendered-results").empty();
   for (let i = index; i < index + numberToAppend; i++) {
@@ -146,13 +150,14 @@ const render = (arr, index, numberToAppend) => {
   }
 };
 
+// ********** Handle errors **********
 const displayError = (err1, err2, err3) => {
   console.log(err1);
   console.log(err2);
   console.log(err3);
 };
 
-//Render saved drinks in sidebar
+// ********** Render saved drinks in sidebar **********
 const renderSavedDrinks = array => {
   $(".saved-drinks").empty();
   savedDrinks.forEach(drink => {
@@ -160,19 +165,23 @@ const renderSavedDrinks = array => {
   });
 };
 
-//Create Database Model
+// ********** Create database model **********
 const createModel = response => {
+  console.log("Attempting to create model");
   $.ajax({
-    method: "POST",
-    url: "http://localhost:3000/api/user/:id/:drinkId",
-    data: response[0],
+    method: "PUT",
+    url: `http://localhost:3000/api/user/${$("#username").text()}/${
+      response.drinks[0].strDrink
+    }`,
+    data: response.drinks[0],
     error: displayError
   });
 };
 
+// ********** URL to search by ID **********
 let searchByIdUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
 
-//Listen for save click
+// ********** Listen for save click **********
 $("#results").on("click", "#save", function() {
   console.log("clicked save");
   savedDrinks.push($(this).data("value"));
@@ -186,12 +195,14 @@ $("#results").on("click", "#save", function() {
   });
 });
 
+// ********** URLs to search by Name, Ingredient, Random **********
 let searchByNameUrl =
   "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 let searchByIngredientUrl =
   "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=";
 let randomSearchUrl = "https://www.thecocktaildb.com/api/json/v1/1/random.php";
 
+// ********** Listen for search submit **********
 $("input[type='submit']").on("click", function(e) {
   e.preventDefault();
   let url = "";

@@ -82,13 +82,12 @@ const updateSavedDrinks = (req, res) => {
   let drinkname = req.params.drinkName;
 
   db.User.findOne({ username: username }, (err, user) => {
-    db.Drink.findOne({ name: drinkname }, (err, drink) => {
+    db.Drink.findOne({ strDrink: drinkname }, (err, drink) => {
       if (drink) {
         console.log("Drink to add: ", drink);
         user.savedDrinks.push(drink);
       } else {
         let newDrink = new db.Drink(req.body);
-        user.savedDrinks.push(newDrink);
         newDrink.save((err, drink) => {
           if (err) {
             console.log(err);
@@ -96,6 +95,7 @@ const updateSavedDrinks = (req, res) => {
           console.log("Saved ", drink);
           res.json(drink);
         });
+        user.savedDrinks.push(newDrink);
       }
     });
   });
