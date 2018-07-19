@@ -3,24 +3,28 @@ let db = require("../models");
 // GET /api/users
 
 const getUsers = (req, res) => {
-  db.User.find({}, (err, users) => {
-    if (err) {
-      return console.log(err);
-    }
-    res.json(users);
-  });
+  db.User.find()
+    .populate("drink")
+    .exec((err, users) => {
+      if (err) {
+        return console.log(err);
+      }
+      res.json(users);
+    });
 };
 
-// GET /api/users/:id
+// GET /api/users/:username
 
 const findOneUser = (req, res) => {
-  let id = req.params.id;
-  db.Drink.findById({ _id: id }, (err, foundUser) => {
-    if (err) {
-      return console.log(err);
-    }
-    res.json(foundUser);
-  });
+  let username = req.params.username;
+  db.User.findOne({ username: username })
+    .populate("drink")
+    .exec((err, foundUser) => {
+      if (err) {
+        return console.log(err);
+      }
+      res.json(foundUser);
+    });
 };
 
 // POST /api/newuser
@@ -35,32 +39,38 @@ const createANewUser = (req, res) => {
     name: name,
     location: location,
     favoriteLiquor: favLiquor,
-    favoriteDrink: favDrink
+    favoriteDrink: favDrink,
+    savedDrinks: []
   };
 };
 
-// PUT /api/user/update/:id
+// PUT /api/user/update/:username
 
 const updateProfile = (req, res) => {
-  let id = req.params.id;
+  let username = req.params.username;
   let update = req.body;
 
-  db.User.findOneAndUpdate({ _id: id }, update, { new: true }, (err, user) => {
-    if (err) {
-      return console.log(err);
+  db.User.findOneAndUpdate(
+    { username: username },
+    update,
+    { new: true },
+    (err, user) => {
+      if (err) {
+        return console.log(err);
+      }
+      res.json(user);
     }
-    res.json(user);
-  });
+  );
 };
 
-// PUT /api/user/:id/:drinkid
+// PUT /api/user/:username/:drinkname
 
 const updateSavedDrinks = (req, res) => {
-  let userId = req.params.id;
-  let drinkId = req.params.drinkid;
+  let username = req.params.username;
+  let drinkname = req.params.drinkName;
 
-  db.User.findById({ _id: id }, (err, user) => {
-    db.Drink.findOne({ _id: drinkId }, (err, drink) => {
+  db.User.findOne({ username: username }, (err, user) => {
+    db.Drink.findOne({ name: drinkname }, (err, drink) => {
       if (drink) {
         console.log("Drink to add: ", drink);
         user.savedDrinks.push(drink);
