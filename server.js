@@ -45,6 +45,9 @@ app.get("/dashboard", (req, res) => {
 });
 // API Endpoints
 
+app.get("/api/users/", controllers.user.show);
+app.get("/api/users/:id", controllers.user.find);
+app.get("/api/drinks/", controllers.drink.show);
 app.get("/api/drinks/:id", controllers.drink.find);
 
 app.post("/api/newuser", controllers.user.create);

@@ -1,5 +1,16 @@
 let db = require("../models");
 
+// GET /api/drinks
+
+const getDrinks = (req, res) => {
+  db.Drink.find({}, (err, drinks) => {
+    if (err) {
+      return console.log(err);
+    }
+    res.json(drinks);
+  }
+}
+
 // GET /api/drinks:id
 
 const findOneDrink = (req, res) => {
@@ -53,6 +64,7 @@ const createADrink = (req, res) => {
 };
 
 module.exports = {
+  show: getDrinks,
   find: findOneDrink,
   create: createADrink
 };

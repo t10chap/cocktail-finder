@@ -1,5 +1,28 @@
 let db = require("../models");
 
+// GET /api/users
+
+const getUsers = (req, res) => {
+  db.User.find({}, (err, users) => {
+    if (err) {
+      return console.log(err);
+    }
+    res.json(users);
+  });
+};
+
+// GET /api/users/:id
+
+const findOneUser = (req, res) => {
+  let id = req.params.id;
+  db.Drink.findById( { _id: id }, (err, foundUser) => {
+    if (err) {
+      return console.log(err)
+    }
+    res.json(foundUser);
+  }
+}
+
 // POST /api/newuser
 
 const createANewUser = (req, res) => {
@@ -57,6 +80,8 @@ const updateSavedDrinks = (req, res) => {
 };
 
 module.exports = {
+  show: getUsers,
+  find: findOneUser,
   create: createANewUser,
   updateProfile: updateProfile,
   updateDrinks: updateSavedDrinks
