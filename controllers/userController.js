@@ -17,7 +17,7 @@ const getUsers = (req, res) => {
 
 const findOneUser = (req, res) => {
   db.User.findOne({ username: req.params.username })
-    .populate("drink")
+    .populate("savedDrinks", "strDrink")
     .exec((err, foundUser) => {
       if (err) {
         return console.log(err);
@@ -29,10 +29,10 @@ const findOneUser = (req, res) => {
 // POST /api/newuser
 
 const createANewUser = (req, res) => {
-  db.User.findOne({ username: req.body.username }, (err, foundUser) =>{
-    if(err) {
+  db.User.findOne({ username: req.body.username }, (err, foundUser) => {
+    if (err) {
       return console.log(err);
-    } else if(foundUser){
+    } else if (foundUser) {
       res.status(400);
     }
 
@@ -47,9 +47,9 @@ const createANewUser = (req, res) => {
 
     db.User.create(newUser, (err, createdUser) => {
       console.log(createdUser);
-      if(err){
+      if (err) {
         return console.log(err);
-      } else{
+      } else {
         res.json(createdUser);
       }
     });
@@ -75,17 +75,21 @@ const updateProfile = (req, res) => {
   );
 };
 
-// PUT /api/user/:username/:drinkname
+// PUT /api/user/:username/:drinkId
 
 const updateSavedDrinks = (req, res) => {
   let username = req.params.username;
-  let drinkname = req.params.drinkName;
+  let drinkId = req.params.drinkId;
 
   db.User.findOne({ username: username }, (err, user) => {
-    db.Drink.findOne({ strDrink: drinkname }, (err, drink) => {
+    db.Drink.findOne({ idDrink: drinkId }, (err, drink) => {
       if (drink) {
         console.log("Drink to add: ", drink);
-        user.savedDrinks.push(drink);
+        if (user.savedDrinks.indexOf(drink) > -1) {
+        } else {
+          user.savedDrinks.push(drink);
+          user.save();
+        }
       } else {
         let newDrink = new db.Drink(req.body);
         newDrink.save((err, drink) => {
@@ -94,8 +98,10 @@ const updateSavedDrinks = (req, res) => {
           }
           console.log("Saved ", drink);
           res.json(drink);
+          // user.savedDrinks.push(drink);
         });
         user.savedDrinks.push(newDrink);
+        user.save();
       }
     });
   });

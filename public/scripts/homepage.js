@@ -113,7 +113,7 @@ const displayDrinksList = response => {
   });
 };
 
-// ********** Rendering drinks**********
+// ********** Rendering drinks **********
 const render = (arr, index, numberToAppend) => {
   $(".rendered-results").empty();
   for (let i = index; i < index + numberToAppend; i++) {
@@ -171,9 +171,12 @@ const createModel = response => {
   $.ajax({
     method: "PUT",
     url: `http://localhost:3000/api/user/${$("#username").text()}/${
-      response.drinks[0].strDrink
+      response.drinks[0].idDrink
     }`,
     data: response.drinks[0],
+    success: function() {
+      console.log("Created the model!");
+    },
     error: displayError
   });
 };

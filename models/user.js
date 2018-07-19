@@ -11,7 +11,7 @@ let UserSchema = new Schema({
   savedDrinks: [
     {
       type: Schema.Types.ObjectId,
-      ref: "drink"
+      ref: "Drink"
     }
   ]
 });
