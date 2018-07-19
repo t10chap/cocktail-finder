@@ -5,7 +5,8 @@ let db = require("../models");
 const getDrinks = (req, res) => {
   db.Drink.find({}, (err, drinks) => {
     if (err) {
-      return console.log(err);
+      console.log(err);
+      return err;
     }
     res.json(drinks);
   });
@@ -17,7 +18,8 @@ const findOneDrink = (req, res) => {
   let id = req.params.id;
   db.Drink.findById({ _id: id }, (err, foundDrink) => {
     if (err) {
-      return console.log(err);
+      console.log(err);
+      return err;
     }
     res.json(foundDrink);
   });
@@ -57,6 +59,7 @@ const createADrink = (req, res) => {
   newDrink.save((err, drink) => {
     if (err) {
       console.log(err);
+      return err;
     }
     console.log("Saved ", drink);
     res.json(drink);
