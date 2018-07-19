@@ -46,15 +46,15 @@ app.get("/dashboard", (req, res) => {
 // API Endpoints
 
 app.get("/api/users/", controllers.user.show);
-app.get("/api/users/:id", controllers.user.find);
+app.get("/api/users/:username", controllers.user.find);
 app.get("/api/drinks/", controllers.drink.show);
 app.get("/api/drinks/:id", controllers.drink.find);
 
 app.post("/api/newuser", controllers.user.create);
 app.post("/api/newdrink", controllers.drink.create);
 
-app.put("/api/user/update/:id", controllers.user.updateProfile);
-app.put("/api/user/:id/:drinkId", controllers.user.updateDrinks);
+app.put("/api/user/update/:username", controllers.user.updateProfile);
+app.put("/api/user/:username/:drinkname", controllers.user.updateDrinks);
 
 // ********** SERVER *********
 

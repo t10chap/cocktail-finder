@@ -44,6 +44,6 @@ let DrinkSchema = new Schema({
   dateModified: String
 });
 
-let Drink = ("Drink", DrinkSchema);
+let Drink = mongoose.model("Drink", DrinkSchema);
 
 module.exports = Drink;
