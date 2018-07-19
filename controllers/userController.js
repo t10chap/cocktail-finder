@@ -15,13 +15,13 @@ const getUsers = (req, res) => {
 
 const findOneUser = (req, res) => {
   let id = req.params.id;
-  db.Drink.findById( { _id: id }, (err, foundUser) => {
+  db.Drink.findById({ _id: id }, (err, foundUser) => {
     if (err) {
-      return console.log(err)
+      return console.log(err);
     }
     res.json(foundUser);
-  }
-}
+  });
+};
 
 // POST /api/newuser
 

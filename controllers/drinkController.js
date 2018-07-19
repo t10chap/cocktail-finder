@@ -8,8 +8,8 @@ const getDrinks = (req, res) => {
       return console.log(err);
     }
     res.json(drinks);
-  }
-}
+  });
+};
 
 // GET /api/drinks:id
 
