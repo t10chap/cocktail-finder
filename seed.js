@@ -3,7 +3,7 @@ let db = require("./models");
 let drinkList = [
   {
     idDrink: 01,
-    strDrink: "Gabe mixture",
+    strDrink: "GabeMixture",
     strVideo: null,
     strCategory: null,
     strIBA: null,
