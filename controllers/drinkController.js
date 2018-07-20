@@ -12,11 +12,12 @@ const getDrinks = (req, res) => {
   });
 };
 
-// GET /api/drinks:id
+// GET /api/drinks/:id
 
 const findOneDrink = (req, res) => {
   let id = req.params.id;
-  db.Drink.findById({ _id: id }, (err, foundDrink) => {
+  console.log(id);
+  db.Drink.findOne({ idDrink: id }, (err, foundDrink) => {
     if (err) {
       console.log(err);
       return err;

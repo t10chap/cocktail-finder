@@ -79,3 +79,50 @@ $("#savedDrinksList").on("click", "#delete", function(e) {
     error: error
   });
 });
+
+// ********** Render selected drink ************
+const renderSelectedDrink = response => {
+  console.log("rendering...");
+
+  let drink = response;
+  // $("#selectedDrink").empty().append(`
+  //  <h2>${drink.strDrink}</h2>
+  //  <img src="${drink.strDrinkThumb}">
+  //  <p>${drink.strInstructions}</p>
+  //  <ul>
+  //  </ul>
+  // `);
+  $("#selectedDrink").empty().append(`
+   <h2>Test</h2>
+   <p>Test Instructions</p>
+   <ul>
+   </ul>
+  `);
+
+  let arrOfVals = Object.values(drink);
+
+  for (let i = 9; i <= 23; i++) {
+    if (
+      arrOfVals[i] == "" ||
+      arrOfVals[i] == null ||
+      arrOfVals[i].length == 0
+    ) {
+    } else {
+      $("#selectedDrink ul").append(`
+              <li>${arrOfVals[i]} : ${arrOfVals[i + 15]}</li>
+              `);
+    }
+  }
+  console.log("rendered!");
+};
+
+$("#savedDrinksList").on("click", "span", function() {
+  let id = $(this).attr("id");
+  console.log(id);
+  $.ajax({
+    method: "GET",
+    url: "/api/drinks/" + id,
+    success: renderSelectedDrink,
+    error: error
+  });
+});
