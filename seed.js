@@ -54,6 +54,13 @@ let userList = [
     favoriteLiquor: "Tequila",
     favoriteDrink: "Patron",
     savedDrinks: []
+  },
+  {
+    name: "Tevin",
+    username: "TevTev",
+    password: "whatever",
+    location: 91281,
+    savedDrinks: []
   }
 ];
 

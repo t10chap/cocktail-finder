@@ -1,9 +1,13 @@
 let url = "/api/";
 
-$(document).ready(function() {
-  $(".mainBtn").click(function() {
-    $(".formContainer").fadeIn(900);
-  });
+// $(document).ready(function() {
+$(".mainBtn").click(function() {
+  $(".formContainer").fadeIn(900);
+});
+
+const succesfulLogin = response => {
+  let username = $("#inputUser").val();
+  let password = $("#inputPassword").val();
 
   const succesfulLogin = response => {
     if(response){
@@ -16,7 +20,10 @@ $(document).ready(function() {
     else{
       $('#inErrLbl').html('Invalid Username/Password');
     }
+  } else {
+    $("#errLbl").html("incorrect input");
   }
+};
 
   const createAccount = response => {
     window.location.href = '/homepage';
@@ -29,19 +36,19 @@ $(document).ready(function() {
   }
 
 // Sign in
-  $(".signin").click(function(){
-    let username = $("#inputUser").val();
-    let password = $("#inputPassword").val();
+$(".signin").click(function() {
+  let username = $("#inputUser").val();
+  let password = $("#inputPassword").val();
 
-    if(username && password){
-      $.ajax({
-        method: "GET",
-        url: url + "users/" + username,
-        success: succesfulLogin,
-        error: errHandle,
-      })
-    }
-  })
+  if (username && password) {
+    $.ajax({
+      method: "GET",
+      url: url + "users/" + username,
+      success: succesfulLogin,
+      error: errHandle
+    });
+  }
+});
 
 // Sign up
   $("#signUpForm").on("submit", function(e){
@@ -77,3 +84,4 @@ $(document).ready(function() {
 
 
 });
+// });
