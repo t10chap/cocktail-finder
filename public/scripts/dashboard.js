@@ -1,3 +1,8 @@
+// *********** Access username from local storage **********
+var username = localStorage.getItem("username");
+// ********** Render username **********
+$("#username").html(username);
+
 // ********* Sidebar animation **********
 let sidebarShown = false;
 $("#sidebar-icon").click(function() {

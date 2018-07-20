@@ -112,78 +112,6 @@ p {
   color: #999;
 }
 
-.section-wrap {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  border-top: 2px solid white;
-}
-
-/* ********* Seach ********* */
-
-.search {
-  width: 100%;
-  height: 40%;
-  align-self: flex-end;
-  background-color: rgb(196, 196, 196);
-}
-
-.search form {
-  width: 50%;
-  height: 50%;
-  text-align: center;
-  margin: 50px auto;
-}
-
-.search label {
-  font-size: 2em;
-}
-
-.form-control {
-  font-size: 1.2em;
-}
-
-.search input[type="text"] {
-  width: 300px;
-  font-size: 1em;
-  padding-right: 0.2px;
-}
-
-/* ********* Results ********* */
-
-.results {
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  align-self: flex-end;
-}
-
-.results i {
-  cursor: pointer;
-}
-
-.rendered-results {
-  width: 98%;
-  height: 80%;
-  margin: 10px auto;
-  /* border: 2px solid black; */
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.data {
-  /* width: 300px; */
-  width: 19%;
-  height: 320px;
-  border: 2px solid green;
-  margin: 10px auto;
-}
-
-.data img {
-  width: 100px;
-  height: 100px;
-}
-
 /* ********* Animated Hamburger Menu ********* */
 
 .sidebar-icon {
@@ -312,43 +240,39 @@ a:focus {
 
 /* ******************************** */
 
-.container {
+.user-content {
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  height: 58%;
-  border: solid 2px red;
-  margin: 14px auto;
+  max-width: 80vw;
+  margin: 10px auto;
 }
 
-.container div {
-  margin: 22px auto;
+.user-content h1 {
+  padding: 20px;
+  border-bottom: 2px solid black;
 }
-
 /* Profile Content
 ----------------------------------------------- */
 .profile {
-  border: solid 2px black;
+  width: 60%;
+  height: 100%;
+  /* border: solid 2px black; */
   display: flex;
   flex-direction: column;
+  margin: 15px;
 }
 
-.name {
-  margin-bottom: 44px;
-}
-
-.location {
-  margin-bottom: 26px;
+.user-content h2 {
+  padding: 20px;
+  color: black;
 }
 
 /* Favorite Drinks Content
  ---------------------------------------------- */
-.favDrink {
-  border: solid 2px black;
-}
-
-.drinkInfo {
-  border: solid 2px black;
+.savedDrinks {
+  width: 55%;
+  height: 100%;
+  margin: 15px;
+  /* border: solid 2px black; */
 }
 
 .btn {
@@ -357,7 +281,14 @@ a:focus {
 
 /* Rendered Data
 ----------------------------------------------- */
-
+.renderedDrinks {
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+  /* border: solid 2px black; */
+  width: 75vw;
+  height: 100%;
+}
 /* Create Drink Form
 ----------------------------------------------- */
 .newDrink {
@@ -369,6 +300,7 @@ a:focus {
 .drinkInfo {
   display: flex;
   flex-direction: column;
+  margin: 15px;
   border: solid 2px black;
 }
 
