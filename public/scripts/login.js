@@ -2,7 +2,7 @@ let url = "/api/";
 
 // $(document).ready(function() {
 $(".mainBtn").click(function() {
-  $(".formContainer").fadeIn(900);
+  $(".formContainer").fadeToggle(900);
 });
 
 const succesfulLogin = response => {

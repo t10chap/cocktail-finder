@@ -32,10 +32,11 @@ const displayDrink = response => {
   let currentSearchSelection = $(".form-control").val();
 
   $(".results").empty()
-    .append(`<i class="fa fa-arrow-left fa-2x back" aria-hidden="true"></i>
+    .append(` <div class="arrows">
+                <i class="fa fa-arrow-left fa-2x back" aria-hidden="true"></i>
                 <h3>Results</h3>
-                <i class="fa fa-arrow-right fa-2x forward" aria-hidden="true">
-                </i>
+                <i class="fa fa-arrow-right fa-2x forward" aria-hidden="true"></i>
+              </div>
                 <section class="rendered-results">
                 </section>`);
   if (currentSearchSelection == "name") {
@@ -80,7 +81,7 @@ const displayDrinksList = response => {
                 <h3>Results</h3>
                 <i class="fa fa-arrow-right fa-2x listforward" aria-hidden="true">
                 </i>
-                <section class="rendered-results">
+                <section class="rendered-results data6">
                 </section>`);
 
   render(drinkArr, drinkIndex, 6);
@@ -127,7 +128,7 @@ const render = (arr, index, numberToAppend) => {
 
         <ul>
         </ul>
-        <button id="save" data-value="${arr[i].strDrink}" 
+        <button id="save" class="saveBtn" data-value="${arr[i].strDrink}"
         data-id="${arr[i].idDrink}">Save!</button>
         </div>
         `);
