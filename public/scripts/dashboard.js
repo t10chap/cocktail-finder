@@ -85,23 +85,17 @@ const renderSelectedDrink = response => {
   console.log("rendering...");
 
   let drink = response;
-  // $("#selectedDrink").empty().append(`
-  //  <h2>${drink.strDrink}</h2>
-  //  <img src="${drink.strDrinkThumb}">
-  //  <p>${drink.strInstructions}</p>
-  //  <ul>
-  //  </ul>
-  // `);
   $("#selectedDrink").empty().append(`
-   <h2>Test</h2>
-   <p>Test Instructions</p>
+   <h2>${drink.strDrink}</h2>
+   <img src="${drink.strDrinkThumb}">
+   <p>${drink.strInstructions}</p>
    <ul>
    </ul>
   `);
 
   let arrOfVals = Object.values(drink);
 
-  for (let i = 9; i <= 23; i++) {
+  for (let i = 10; i <= 23; i++) {
     if (
       arrOfVals[i] == "" ||
       arrOfVals[i] == null ||
