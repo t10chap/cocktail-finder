@@ -170,7 +170,7 @@ const createModel = response => {
   console.log("Attempting to create model");
   $.ajax({
     method: "PUT",
-    url: `http://localhost:3000/api/user/${$("#username").text()}/${
+    url: `http://localhost:3000/api/user/add/${$("#username").text()}/${
       response.drinks[0].idDrink
     }`,
     data: response.drinks[0],

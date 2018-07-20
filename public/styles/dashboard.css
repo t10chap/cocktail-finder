@@ -238,6 +238,16 @@ a:focus {
   transition: all 0.3s;
 }
 
+.user-content li a:hover,
+.user-content li span:hover {
+  color: white;
+}
+
+.btn:hover {
+  background-color: white;
+  color: black;
+}
+
 /* ******************************** */
 
 .user-content {
@@ -250,12 +260,12 @@ a:focus {
   padding: 20px;
   border-bottom: 2px solid black;
 }
+
 /* Profile Content
 ----------------------------------------------- */
 .profile {
   width: 60%;
   height: 100%;
-  /* border: solid 2px black; */
   display: flex;
   flex-direction: column;
   margin: 15px;
@@ -269,14 +279,28 @@ a:focus {
 /* Favorite Drinks Content
  ---------------------------------------------- */
 .savedDrinks {
-  width: 55%;
+  width: 70%;
   height: 100%;
   margin: 15px;
-  /* border: solid 2px black; */
+}
+
+.user-content ul {
+  list-style: none;
+}
+
+.user-content li {
+  font-size: 1.3em;
+  padding-top: 10px;
+}
+
+.user-content span {
+  cursor: pointer;
 }
 
 .btn {
-  margin-top: 16px;
+  color: black;
+  background-color: transparent;
+  border: 2px solid black;
 }
 
 /* Rendered Data
@@ -285,7 +309,6 @@ a:focus {
   display: flex;
   flex-direction: column;
   margin: 15px;
-  /* border: solid 2px black; */
   width: 75vw;
   height: 100%;
 }

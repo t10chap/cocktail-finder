@@ -55,7 +55,8 @@ app.post("/api/newuser", controllers.user.create);
 app.post("/api/newdrink", controllers.drink.create);
 
 app.put("/api/user/update/:username", controllers.user.updateProfile);
-app.put("/api/user/:username/:drinkname", controllers.user.updateDrinks);
+app.put("/api/user/add/:username/:drinkname", controllers.user.addDrinks);
+app.put("/api/user/remove/:username/:drinkname", controllers.user.removeDrinks);
 
 // ********** SERVER *********
 

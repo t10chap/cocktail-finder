@@ -61,25 +61,25 @@
 
       <div class="profile">
         <h1>Profile</h1>
-        <h2 id="name" class="name">User's Name</h2>
-        <h2 id="location" class="location">User's Location</h2>
-        <h2 id="favLiquor" class="favLiqour">User's Favorite Drink</h2>
+        <h2 id="name" class="name"></h2>
+        <h2 id="location" class="location"></h2>
+        <h2 id="favLiquor" class="favLiqour"></h2>
       </div>
 
 
 
       <div class="savedDrinks">
         <h1 class="savedDrinksHead">Favorite Drinks</h1>
-        <ul class="savedDrinksList">
+        <ul id="savedDrinksList" class=" savedDrinksList ">
         </ul>
-        <button type="button" class="btn btn-primary " data-toggle="modal " data-target=".bd-example-modal-lg ">Create a drink</button>
+        <button type="button" class="btn" data-toggle="modal" data-target=".bd-example-modal-lg ">Create a drink</button>
       </div>
 
-      <div class="renderedDrinks">
+      <div class="renderedDrinks ">
         <h1>Rendered Data</h1>
-        <ul id="rendered-drinks-list">
+        <div id="selectedDrink ">
 
-        </ul>
+        </div>
       </div>
     </section>
 
@@ -89,7 +89,7 @@
         <div class="modal-content ">
           <form class="newDrink ">
             <div class="drinkInfo ">
-              <input class="drinkName " type="text " placeholder="Drink Name*">
+              <input class="drinkName " type="text " placeholder="Drink Name* ">
               <textarea class="drinkInstructions " type="text " placeholder="Instructions/ Directions "></textarea>
             </div>
             <div class="drinkIngredients ">
