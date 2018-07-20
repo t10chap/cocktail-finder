@@ -50,19 +50,8 @@ $(".signin").click(function() {
     e.preventDefault();
     let signUpData = $(this).serialize();
     console.log(signUpData);
-    // let name = $("input[name='name']").val();
-    // let username = $("input[name='signUpUsername']").val();
     let password = $("input[name='signUpPassword']").val();
     let passConfirm = $("input[name='confirmPassword']").val();
-    // let location = $("input[name='location']").val();
-    // let favLiqour = $("input[name='favLiqior']").val();
-    // let favDrink = $("input[name='favDrink']").val();
-    // response.body.name = name;
-    // response.body.username = username;
-    // response.body.password = password;
-    // response.body.location = location;
-    // response.body.favoriteLiquor = favLiquor;
-    // response.body.favoriteDrink = favDrink;
     if(password === passConfirm){
       $.ajax({
         method: "POST",
