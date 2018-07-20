@@ -8,21 +8,16 @@ $(".mainBtn").click(function() {
 const succesfulLogin = response => {
   let username = $("#inputUser").val();
   let password = $("#inputPassword").val();
-
-  const succesfulLogin = response => {
-    if(response){
-    let user = response.username;
-    let pass = response.password;
-      if(username === user && password === pass){
+  if(response){
+  let user = response.username;
+  let pass = response.password;
+    if(username === user && password === pass){
         window.location.href = '/homepage';
-      }
     }
+  }
     else{
       $('#inErrLbl').html('Invalid Username/Password');
     }
-  } else {
-    $("#errLbl").html("incorrect input");
-  }
 };
 
   const createAccount = response => {
@@ -80,8 +75,4 @@ $(".signin").click(function() {
     else{
       $("#upErrLbl").html("Passwords don't match")
     }
-  })
-
-
-});
-// });
+  });
