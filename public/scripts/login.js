@@ -48,21 +48,22 @@ $(".signin").click(function() {
 });
 
 // Sign up
-$("#signUpForm").on("submit", function(e) {
-  e.preventDefault();
-  let signUpData = $(this).serialize();
-  console.log(signUpData);
-  let password = $("input[name='signUpPassword']").val();
-  let passConfirm = $("input[name='confirmPassword']").val();
-  if (password === passConfirm) {
-    $.ajax({
-      method: "POST",
-      url: "/api/newuser",
-      data: signUpData,
-      success: createAccount,
-      error: errHandle
-    });
-  } else {
-    $("#upErrLbl").html("Passwords don't match");
-  }
-});
+  $("#signUpForm").on("submit", function(e){
+    e.preventDefault();
+    let signUpData = $(this).serialize();
+    console.log(signUpData);
+    let password = $("input[name='signUpPassword']").val();
+    let passConfirm = $("input[name='confirmPassword']").val();
+    if(password === passConfirm){
+      $.ajax({
+        method: "POST",
+        url: "/api/newuser",
+        data: signUpData,
+        success: createAccount,
+        error: errHandle,
+      })
+    }
+    else{
+      $("#upErrLbl").html("Passwords don't match")
+    }
+  });

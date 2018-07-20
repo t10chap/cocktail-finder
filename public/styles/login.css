@@ -59,7 +59,7 @@ body {
 }
 
 .formContainer {
-  width: 52.7%;
+  max-width: 900px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -73,7 +73,7 @@ body {
 
 .form {
   width: 100%;
-  max-width: 31.6%;
+  max-width: 36%;
   padding: 15px;
   margin: 0 auto;
   background-color: rgba(200, 200, 200, 0.9);

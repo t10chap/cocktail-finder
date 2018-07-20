@@ -31,32 +31,36 @@ const findOneUser = (req, res) => {
 // POST /api/newuser
 
 const createANewUser = (req, res) => {
-  db.User.findOne({ username: req.body.username }, (err, foundUser) => {
+  db.User.findOne({username: req.body.signUpUsername}, (err, foundUser) => {
     if (err) {
       console.log(err);
       return err;
-    } else if (foundUser) {
-      res.status(400);
+    }
+    if (foundUser) {
+      console.log("not crashing!")
+      res.sendStatus(400);
+    } else {
+      let newUser = {
+        name: req.body.name,
+        username: req.body.signUpUsername,
+        password: req.body.signUpPassword,
+        location: req.body.location,
+        favoriteLiquor: req.body.favLiquor,
+        favoriteDrink: req.body.favDrink
+      };
+
+      db.User.create(newUser, (err, createdUser) => {
+        console.log(createdUser);
+        if (err) {
+          console.log(err);
+          return err;
+        } else {
+          res.json(createdUser);
+        }
+      });
     }
 
-    let newUser = {
-      name: req.body.name,
-      username: req.body.signUpUsername,
-      password: req.body.signUpPassword,
-      location: req.body.location,
-      favoriteLiquor: req.body.favLiquor,
-      favoriteDrink: req.body.favDrink
-    };
 
-    db.User.create(newUser, (err, createdUser) => {
-      console.log(createdUser);
-      if (err) {
-        console.log(err);
-        return err;
-      } else {
-        res.json(createdUser);
-      }
-    });
   });
 };
 
