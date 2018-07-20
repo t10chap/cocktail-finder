@@ -1,7 +1,9 @@
 // $(document).ready(function() {
 
+// *********** Access username from local storage **********
+var username = localStorage.getItem("username");
 // ********** Render username **********
-$("#username").html("Abcd");
+$("#username").html(username);
 
 // ********** User saved drinks **********
 let savedDrinks = [];
@@ -238,4 +240,10 @@ $("input[type='submit']").on("click", function(e) {
     });
   }
 });
+
+// ********** Sidebar home button ************
+
+// ********** Sidebar logout button ************
+localStorage.clear();
+
 // });

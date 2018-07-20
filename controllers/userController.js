@@ -4,7 +4,7 @@ let db = require("../models");
 
 const getUsers = (req, res) => {
   db.User.find()
-    .populate("drink")
+    .populate("savedDrinks", "strDrink")
     .exec((err, users) => {
       if (err) {
         console.log(err);
@@ -31,12 +31,11 @@ const findOneUser = (req, res) => {
 // POST /api/newuser
 
 const createANewUser = (req, res) => {
-  db.User.findOne({ username: req.body.username }, (err, foundUser) =>{
-    if(err) {
+  db.User.findOne({ username: req.body.username }, (err, foundUser) => {
+    if (err) {
       console.log(err);
       return err;
-
-    } else if(foundUser){
+    } else if (foundUser) {
       res.status(400);
     }
     //
@@ -51,10 +50,10 @@ const createANewUser = (req, res) => {
 
     db.User.create(req.body, (err, createdUser) => {
       console.log(createdUser);
-      if(err){
+      if (err) {
         console.log(err);
         return err;
-      } else{
+      } else {
         res.json(createdUser);
       }
     });
@@ -75,7 +74,8 @@ const updateProfile = (req, res) => {
       if (err) {
         console.log(err);
         return err;
-      } res.json(user);
+      }
+      res.json(user);
     }
   );
 };
@@ -101,7 +101,6 @@ const updateSavedDrinks = (req, res) => {
           if (err) {
             console.log(err);
             return err;
-
           }
           console.log("Saved ", drink);
           res.json(drink);
