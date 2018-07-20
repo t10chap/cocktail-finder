@@ -317,24 +317,42 @@ a:focus {
 .newDrink {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   margin: 16px 16px;
+}
+
+.drinkName{
+  border: solid 1px black;
 }
 
 .drinkInfo {
   display: flex;
   flex-direction: column;
-  margin: 15px;
-  border: solid 2px black;
+}
+
+.drinkInstructions{
+  margin-top: 10px;
+  height: 80%;
+  border: solid 1px black;
 }
 
 .drinkIngredients {
   display: flex;
   flex-direction: column;
-  border: solid 2px black;
+}
+
+.ingredients{
+  border: solid 1px black;
+  margin-bottom: 6px;
 }
 
 .drinkPortions {
   display: flex;
   flex-direction: column;
-  border: solid 2px black;
+  margin-left: 4px;
+}
+
+.portions{
+  border: solid 1px black;
+  margin-bottom: 6px;
 }
