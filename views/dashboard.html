@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <!-- <link rel="stylesheet" type="text/css" href="/styles/fonts.css"> -->
-  <link rel="stylesheet" type="text/css" href="/styles/homepage.css">
+  <link rel="stylesheet" type="text/css" href="/styles/dashboard.css">
 
 
 </head>
@@ -44,10 +44,10 @@
       <ul class="list-unstyled hide">
         <h4 id="username"></h4>
 
-        <button name="logout">Log Out</button>
+        <button id="logout" name="logout">Log Out</button>
 
         <li>
-          <a href="#home">Home</a>
+          <a href="/homepage">Home</a>
         </li>
         <li>
           <a href="#">About</a>
@@ -57,74 +57,80 @@
         </li>
       </ul>
     </aside>
-    <section>
-      <div class="container">
-        <div class="profile">
-          <h2 class="name">User's Name</h2>
-          <h3 class="location">User's Location</h2>
-            <h3 class="favLiqour">User's Favorite Drink</h3>
-        </div>
+    <section class="user-content">
 
-        <div class="favDrink">
-          <h2 class="favDrinkHead">Favorite Drinks</h2>
-          <ul class="favDrinkList">
-          </ul>
-        </div>
-
-        <div class="drinkInfo">Rendered Data</div>
-
+      <div class="profile">
+        <h1>Profile</h1>
+        <h2 id="name" class="name"></h2>
+        <h2 id="location" class="location"></h2>
+        <h2 id="favLiquor" class="favLiqour"></h2>
       </div>
 
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Create a drink</button>
 
-      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <form class="newDrink">
-              <div class="drinkInfo">
-                <input class="drinkName" type="text" placeholder="Drink Name*">
-                <textarea class="drinkInstructions" type="text" placeholder="Instructions/ Directions"></textarea>
-              </div>
-              <div class="drinkIngredients">
-                <input class="ingredients" type="text" placeholder="Ingredient 1*">
-                <input class="ingredients" type="text" placeholder="Ingredient 2*">
-                <input class="ingredients" type="text" placeholder="Ingredient 3*">
-                <input class="ingredients" type="text" placeholder="Ingredient 4*">
-                <input class="ingredients" type="text" placeholder="Ingredient 5*">
-                <input class="ingredients" type="text" placeholder="Ingredient 6*">
-                <input class="ingredients" type="text" placeholder="Ingredient 7*">
-                <input class="ingredients" type="text" placeholder="Ingredient 8*">
-                <input class="ingredients" type="text" placeholder="Ingredient 9*">
-                <input class="ingredients" type="text" placeholder="Ingredient 10*">
-              </div>
-              <div class="drinkPortions">
-                <input class="portions" type="number" placeholder="Amount*">
-                <input class="portions" type="number" placeholder="Amount*">
-                <input class="portions" type="number" placeholder="Amount*">
-                <input class="portions" type="number" placeholder="Amount*">
-                <input class="portions" type="number" placeholder="Amount*">
-                <input class="portions" type="number" placeholder="Amount*">
-                <input class="portions" type="number" placeholder="Amount*">
-                <input class="portions" type="number" placeholder="Amount*">
-                <input class="portions" type="number" placeholder="Amount*">
-                <input class="portions" type="number" placeholder="Amount*">
-              </div>
-            </form>
-          </div>
+
+      <div class="savedDrinks">
+        <h1 class="savedDrinksHead">Favorite Drinks</h1>
+        <ul id="savedDrinksList" class=" savedDrinksList ">
+        </ul>
+        <button type="button" class="btn" data-toggle="modal" data-target=".bd-example-modal-lg ">Create a drink</button>
+      </div>
+
+      <div class="renderedDrinks ">
+        <h1>Rendered Data</h1>
+        <div id="selectedDrink ">
+
         </div>
       </div>
     </section>
 
+
+    <div class=" modal fade bd-example-modal-lg " tabindex="-1 " role="dialog " aria-labelledby="myLargeModalLabel " aria-hidden="true ">
+      <div class="modal-dialog modal-lg ">
+        <div class="modal-content ">
+          <form class="newDrink ">
+            <div class="drinkInfo ">
+              <input class="drinkName " type="text " placeholder="Drink Name* ">
+              <textarea class="drinkInstructions " type="text " placeholder="Instructions/ Directions "></textarea>
+            </div>
+            <div class="drinkIngredients ">
+              <input class="ingredients " type="text " placeholder="Ingredient 1* ">
+              <input class="ingredients " type="text " placeholder="Ingredient 2* ">
+              <input class="ingredients " type="text " placeholder="Ingredient 3* ">
+              <input class="ingredients " type="text " placeholder="Ingredient 4* ">
+              <input class="ingredients " type="text " placeholder="Ingredient 5* ">
+              <input class="ingredients " type="text " placeholder="Ingredient 6* ">
+              <input class="ingredients " type="text " placeholder="Ingredient 7* ">
+              <input class="ingredients " type="text " placeholder="Ingredient 8* ">
+              <input class="ingredients " type="text " placeholder="Ingredient 9* ">
+              <input class="ingredients " type="text " placeholder="Ingredient 10* ">
+            </div>
+            <div class="drinkPortions ">
+              <input class="portions " type="number " placeholder="Amount* ">
+              <input class="portions " type="number " placeholder="Amount* ">
+              <input class="portions " type="number " placeholder="Amount* ">
+              <input class="portions " type="number " placeholder="Amount* ">
+              <input class="portions " type="number " placeholder="Amount* ">
+              <input class="portions " type="number " placeholder="Amount* ">
+              <input class="portions " type="number " placeholder="Amount* ">
+              <input class="portions " type="number " placeholder="Amount* ">
+              <input class="portions " type="number " placeholder="Amount* ">
+              <input class="portions " type="number " placeholder="Amount* ">
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+
+
   </main>
 
   <!-- VENDOR SCRIPTS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js " integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin=" anonymous "></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js " integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49 " crossorigin="anonymous "></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js " integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em " crossorigin="anonymous "></script>
 
   <!-- APPLICATION SCRIPTS -->
-  <script src="/scripts/homepage.js" type="text/javascript"></script>
+  <script src="/scripts/dashboard.js " type="text/javascript "></script>
 </body>
 
 </html>

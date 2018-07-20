@@ -31,13 +31,13 @@ const findOneUser = (req, res) => {
 // POST /api/newuser
 
 const createANewUser = (req, res) => {
-  db.User.findOne({username: req.body.signUpUsername}, (err, foundUser) => {
+  db.User.findOne({ username: req.body.signUpUsername }, (err, foundUser) => {
     if (err) {
       console.log(err);
       return err;
     }
     if (foundUser) {
-      console.log("not crashing!")
+      console.log("not crashing!");
       res.sendStatus(400);
     } else {
       let newUser = {
@@ -59,8 +59,6 @@ const createANewUser = (req, res) => {
         }
       });
     }
-
-
   });
 };
 
@@ -86,7 +84,7 @@ const updateProfile = (req, res) => {
 
 // PUT /api/user/:username/:drinkId
 
-const updateSavedDrinks = (req, res) => {
+const addADrink = (req, res) => {
   let username = req.params.username;
   let drinkId = req.params.drinkId;
 
@@ -95,11 +93,13 @@ const updateSavedDrinks = (req, res) => {
       if (drink) {
         console.log("Drink to add: ", drink);
         if (user.savedDrinks.indexOf(drink) > -1) {
+          console.log("Drink already saved");
         } else {
           user.savedDrinks.push(drink);
           user.save();
         }
       } else {
+        console.log("Creating a new drink");
         let newDrink = new db.Drink(req.body);
         newDrink.save((err, drink) => {
           if (err) {
@@ -108,10 +108,34 @@ const updateSavedDrinks = (req, res) => {
           }
           console.log("Saved ", drink);
           res.json(drink);
-          // user.savedDrinks.push(drink);
         });
         user.savedDrinks.push(newDrink);
         user.save();
+      }
+    });
+  });
+};
+
+// PUT /api/user/:username/:drinkId
+
+const remove = (drinkToRemove, arr) => {
+  let i = arrr.indexOf(drinkToRemove);
+  if (i >= 0) {
+    arr.splace(i, 1);
+  }
+  return arr;
+};
+
+const removeADrink = (req, res) => {
+  let username = req.params.username;
+  let drinkId = req.params.drinkId;
+  db.User.findOne({ username: username }, (err, user) => {
+    db.Drink.findOne({ idDrink: drinkId }, (err, drinkToRemove) => {
+      if (drinkToRemove) {
+        console.log("Drink to remove: ", drink);
+        remove(drinkToRemove, user.savedDrinks);
+        user.save();
+        res.status(200);
       }
     });
   });
@@ -122,5 +146,6 @@ module.exports = {
   find: findOneUser,
   create: createANewUser,
   updateProfile: updateProfile,
-  updateDrinks: updateSavedDrinks
+  addDrinks: addADrink,
+  removeDrinks: removeADrink
 };
