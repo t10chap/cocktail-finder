@@ -5,7 +5,7 @@ $(document).ready(function() {
     $(".formContainer").fadeIn(900);
   });
 
-  const succesfulLogin = (response) => {
+  const succesfulLogin = response => {
     if(response){
     let user = response.username;
     let pass = response.password;
@@ -14,8 +14,12 @@ $(document).ready(function() {
       }
     }
     else{
-      $('#errLbl').html('incorrect input');
+      $('#inErrLbl').html('Invalid Username/Password');
     }
+  }
+
+  const createAccount = response => {
+    window.location.href = '/homepage';
   }
 
   const errHandle = (err1, err2, err3) => {
@@ -40,13 +44,35 @@ $(document).ready(function() {
   })
 
 // Sign up
-  $(".signup").click(function(){
-    let name = $("input[name='name']").val();
-    let username = $("input[name='username']").val();
-    let password = $("input[name='password']").val();
-    let location = $("input[name='location']").val();
-    let favLiqour = $("input[name='favLiqior']").val();
-    let favDrink = $("input[name='favDrink']").val();
+  $("#signUpForm").on("submit", function(e){
+    e.preventDefault();
+    let signUpData = $(this).serialize();
+    console.log(signUpData);
+    // let name = $("input[name='name']").val();
+    // let username = $("input[name='signUpUsername']").val();
+    let password = $("input[name='signUpPassword']").val();
+    let passConfirm = $("input[name='confirmPassword']").val();
+    // let location = $("input[name='location']").val();
+    // let favLiqour = $("input[name='favLiqior']").val();
+    // let favDrink = $("input[name='favDrink']").val();
+    // response.body.name = name;
+    // response.body.username = username;
+    // response.body.password = password;
+    // response.body.location = location;
+    // response.body.favoriteLiquor = favLiquor;
+    // response.body.favoriteDrink = favDrink;
+    if(password === passConfirm){
+      $.ajax({
+        method: "POST",
+        url: "/api/newuser",
+        data: signUpData,
+        success: createAccount,
+        error: errHandle,
+      })
+    }
+    else{
+      $("#upErrLbl").html("Passwords don't match")
+    }
   })
 
 

@@ -24,9 +24,9 @@
     <div class="formContainer hide">
       <div class="form">
         <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
-        <h3 id="errLbl"></h3>
-        <input type="text" name="username" id="inputUser" class="form-control" placeholder="Username*" required autofocus>
-        <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password*" required>
+        <h5 id="inErrLbl"></h5>
+        <input type="text" name="signInUsername" id="inputUser" class="form-control" placeholder="Username*" required autofocus>
+        <input type="password" name="signInPassword" id="inputPassword" class="form-control" placeholder="Password*" required>
         <div class="checkbox mb-3">
           <input type="checkbox" value="remember-me"> Remember me
         </div>
@@ -34,11 +34,12 @@
       </div>
       <h1 id="or">Or</h1>
 
-      <form class="form">
+      <form class="form" id="signUpForm">
         <h1 class="h3 mb-3 font-weight-normal">Sign up</h1>
+        <h5 id="upErrLbl"></h5>
         <input type="text" name="name" class="form-control" placeholder="Full Name*" required>
-        <input type="text" name="username" id="inputNewUser" class="form-control" placeholder="Username*" required autofocus>
-        <input type="password" name="password" id="inputNewPassword" class="form-control" placeholder="Password*" required>
+        <input type="text" name="signUpUsername" id="inputNewUser" class="form-control" placeholder="Username*" required autofocus>
+        <input type="password" name="signUpPassword" id="inputNewPassword" class="form-control" placeholder="Password*" required>
         <input type="password" name="confirmPassword" id="confirmPassword" class="form-control" placeholder="Confirm Password*" required>
         <input type="number" name="location" class="form-control" placeholder="Zip Code*" required>
         <input type="text" name="favLiquor"  class="form-control" placeholder="Favorite Liqour*" required>
