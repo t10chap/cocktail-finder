@@ -244,6 +244,9 @@ $("input[type='submit']").on("click", function(e) {
 // ********** Sidebar home button ************
 
 // ********** Sidebar logout button ************
-localStorage.clear();
+$("#logout").on("click", function() {
+  localStorage.clear();
+  window.location.href = "/login";
+});
 
 // });
