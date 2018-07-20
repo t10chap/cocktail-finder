@@ -1,5 +1,3 @@
-// $(document).ready(function() {
-
 // *********** Access username from local storage **********
 var username = localStorage.getItem("username");
 // ********** Render username **********
@@ -241,12 +239,23 @@ $("input[type='submit']").on("click", function(e) {
   }
 });
 
-// ********** Sidebar home button ************
+//  ********* Window onload, render existing user saved drinks **********
+const renderExistingDrinks = response => {
+  response.savedDrinks.forEach(drink => {
+    savedDrinks.push(drink.strDrink);
+  });
+  renderSavedDrinks(savedDrinks);
+};
+
+$.ajax({
+  method: "GET",
+  url: "/api/users/" + username,
+  success: renderExistingDrinks,
+  error: displayError
+});
 
 // ********** Sidebar logout button ************
 $("#logout").on("click", function() {
   localStorage.clear();
-  window.location.href = "/login";
+  window.location.href = "/";
 });
-
-// });
