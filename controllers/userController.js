@@ -92,12 +92,12 @@ const addADrink = (req, res) => {
     db.Drink.findOne({ idDrink: drinkId }, (err, drink) => {
       if (drink) {
         console.log("Drink to add: ", drink);
-        if (user.savedDrinks.indexOf(drink) > -1) {
-          //for loop here
-          console.log("Drink already saved");
-        } else {
-          user.savedDrinks.push(drink);
-          user.save();
+        for (let i = 0; i < user.savedDrinks.length; i++) {
+          if (parseInt(user.savedDrinks[i].idDrink) == drink.idDrink) {
+          } else {
+            user.savedDrinks.push(drink);
+            user.save();
+          }
         }
       } else {
         console.log("Creating a new drink");
@@ -146,14 +146,14 @@ const removeADrink = (req, res) => {
 
 const deleteAccount = (req, res) => {
   let username = req.params.username;
-  db.User.findOneAndRemove({username: username}, (err, removedUser) => {
-    if(err){
+  db.User.findOneAndRemove({ username: username }, (err, removedUser) => {
+    if (err) {
       console.log(err);
       return err;
     }
     res.json(removedUser);
-  })
-}
+  });
+};
 
 module.exports = {
   show: getUsers,
@@ -162,5 +162,5 @@ module.exports = {
   updateProfile: updateProfile,
   addDrinks: addADrink,
   removeDrinks: removeADrink,
-  removeProfile: deleteAccount,
+  removeProfile: deleteAccount
 };
