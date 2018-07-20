@@ -16,3 +16,9 @@ $("#sidebar-icon").click(function() {
     sidebarShown = false;
   }
 });
+
+// ********** Sidebar logout button ************
+$("#logout").on("click", function() {
+  localStorage.clear();
+  window.location.href = "/";
+});

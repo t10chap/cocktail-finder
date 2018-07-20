@@ -8,27 +8,29 @@ $(".mainBtn").click(function() {
 const succesfulLogin = response => {
   let username = $("#inputUser").val();
   let password = $("#inputPassword").val();
-  if(response){
-  let user = response.username;
-  let pass = response.password;
-    if(username === user && password === pass){
-        window.location.href = '/homepage';
+  if (response) {
+    let user = response.username;
+    let pass = response.password;
+    if (username === user && password === pass) {
+      localStorage.setItem("username", user);
+      window.location.href = "/homepage";
     }
+  } else {
+    $("#inErrLbl").html("Invalid Username/Password");
   }
-    else{
-      $('#inErrLbl').html('Invalid Username/Password');
-    }
 };
 
-  const createAccount = response => {
-    window.location.href = '/homepage';
-  }
+const createAccount = response => {
+  let user = response.username;
+  localStorage.setItem("username", user);
+  window.location.href = "/homepage";
+};
 
-  const errHandle = (err1, err2, err3) => {
-    console.log(err1);
-    console.log(err2);
-    console.log(err3);
-  }
+const errHandle = (err1, err2, err3) => {
+  console.log(err1);
+  console.log(err2);
+  console.log(err3);
+};
 
 // Sign in
 $(".signin").click(function() {
