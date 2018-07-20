@@ -4,7 +4,7 @@
 
 body {
   box-sizing: border-box;
-  font: 16px;
+  font-size: 16px;
   font-family: "Raleway", sans;
   background-color: rgb(196, 196, 196);
 }
@@ -51,7 +51,7 @@ h2 {
 
 .sidebar {
   width: 0;
-  height: 1051px;
+  height: 100vh;
   background: black;
   color: white;
   text-align: center;
@@ -116,13 +116,14 @@ p {
   flex-direction: column;
   width: 100%;
   border-top: 2px solid white;
+  /* min-height: 100%; */
 }
 
 /* ********* Seach ********* */
 
 .search {
   width: 100%;
-  height: 40%;
+  /* height: 40%; */
   align-self: flex-end;
   background-color: rgb(196, 196, 196);
 }
@@ -152,9 +153,8 @@ p {
 
 .results {
   width: 100%;
-  height: 100%;
   text-align: center;
-  align-self: flex-end;
+  /* align-self: flex-end; */
 }
 
 .results i {
@@ -163,24 +163,56 @@ p {
 
 .rendered-results {
   width: 98%;
-  height: 80%;
+  /* height: 80%; */
   margin: 10px auto;
-  /* border: 2px solid black; */
   display: flex;
   flex-wrap: wrap;
 }
 
+.rendered-results h6 {
+  min-height: 80px;
+}
+
 .data {
-  /* width: 300px; */
-  width: 19%;
-  height: 320px;
-  border: 2px solid green;
-  margin: 10px auto;
+  width: 22%;
+  /* float: left; */
+  height: auto;
+  margin-left: 18.6%;
+  margin-bottom: 16px;
+  border-top: solid 2px black;
+  padding-top: 20px;
+  /* min-height: 320px; */
+  /* border: 2px solid green; */
+  /* margin: 10px auto; */
 }
 
 .data img {
   width: 100px;
   height: 100px;
+}
+
+.data6 .data{
+margin-left: 10%;
+padding-bottom: 15px;
+border: solid 1px black;
+}
+
+section .data6 h6{
+  font-size: 30px;
+}
+
+section .data6 img{
+  height: 50%;
+  width: 50%;
+}
+
+section .data6 button{
+  height: 15%;
+  width: 20%;
+}
+
+.saveBtn{
+  margin-bottom: 5px;
 }
 
 /* ********* Animated Hamburger Menu ********* */
