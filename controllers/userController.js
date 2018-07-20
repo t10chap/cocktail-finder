@@ -4,7 +4,7 @@ let db = require("../models");
 
 const getUsers = (req, res) => {
   db.User.find()
-    .populate("savedDrinks", "strDrink")
+    .populate("savedDrinks", "strDrink idDrink")
     .exec((err, users) => {
       if (err) {
         console.log(err);
@@ -18,7 +18,7 @@ const getUsers = (req, res) => {
 
 const findOneUser = (req, res) => {
   db.User.findOne({ username: req.params.username })
-    .populate("savedDrinks", "strDrink")
+    .populate("savedDrinks", "strDrink idDrink")
     .exec((err, foundUser) => {
       if (err) {
         console.log(err);
@@ -82,7 +82,7 @@ const updateProfile = (req, res) => {
   );
 };
 
-// PUT /api/user/:username/:drinkId
+// PUT /api/user/add/:username/:drinkId
 
 const addADrink = (req, res) => {
   let username = req.params.username;
@@ -93,6 +93,7 @@ const addADrink = (req, res) => {
       if (drink) {
         console.log("Drink to add: ", drink);
         if (user.savedDrinks.indexOf(drink) > -1) {
+          //for loop here
           console.log("Drink already saved");
         } else {
           user.savedDrinks.push(drink);
@@ -116,12 +117,12 @@ const addADrink = (req, res) => {
   });
 };
 
-// PUT /api/user/:username/:drinkId
+// PUT /api/user/remove/:username/:drinkId
 
 const remove = (drinkToRemove, arr) => {
-  let i = arrr.indexOf(drinkToRemove);
+  let i = arr.indexOf(drinkToRemove);
   if (i >= 0) {
-    arr.splace(i, 1);
+    arr.splice(i, 1);
   }
   return arr;
 };
