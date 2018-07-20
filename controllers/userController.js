@@ -142,11 +142,25 @@ const removeADrink = (req, res) => {
   });
 };
 
+// DELETE /api/users/:username
+
+const deleteAccount = (req, res) => {
+  let username = req.params.username;
+  db.User.findOneAndRemove({username: username}, (err, removedUser) => {
+    if(err){
+      console.log(err);
+      return err;
+    }
+    res.json(removedUser);
+  })
+}
+
 module.exports = {
   show: getUsers,
   find: findOneUser,
   create: createANewUser,
   updateProfile: updateProfile,
   addDrinks: addADrink,
-  removeDrinks: removeADrink
+  removeDrinks: removeADrink,
+  removeProfile: deleteAccount,
 };

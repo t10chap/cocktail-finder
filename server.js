@@ -58,6 +58,8 @@ app.put("/api/user/update/:username", controllers.user.updateProfile);
 app.put("/api/user/add/:username/:drinkname", controllers.user.addDrinks);
 app.put("/api/user/remove/:username/:drinkname", controllers.user.removeDrinks);
 
+app.delete("/api/users/:username", controllers.user.removeProfile);
+
 // ********** SERVER *********
 
 let port = process.env.PORT || 3000;
