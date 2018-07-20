@@ -38,17 +38,17 @@ const createANewUser = (req, res) => {
     } else if (foundUser) {
       res.status(400);
     }
-    //
-    // let newUser = {
-    //   name: req.body.name,
-    //   username: req.body.username,
-    //   password: req.body.password,
-    //   location: req.body.location,
-    //   favoriteLiquor: req.body.favoriteLiquor,
-    //   favoriteDrink: req.body.favoriteDrink
-    // };
 
-    db.User.create(req.body, (err, createdUser) => {
+    let newUser = {
+      name: req.body.name,
+      username: req.body.signUpUsername,
+      password: req.body.signUpPassword,
+      location: req.body.location,
+      favoriteLiquor: req.body.favLiquor,
+      favoriteDrink: req.body.favDrink
+    };
+
+    db.User.create(newUser, (err, createdUser) => {
       console.log(createdUser);
       if (err) {
         console.log(err);
