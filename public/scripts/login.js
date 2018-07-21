@@ -51,7 +51,6 @@ $(".signin").click(function() {
   $("#signUpForm").on("submit", function(e){
     e.preventDefault();
     let signUpData = $(this).serialize();
-    console.log(signUpData);
     let password = $("input[name='signUpPassword']").val();
     let passConfirm = $("input[name='confirmPassword']").val();
     if(password === passConfirm){
