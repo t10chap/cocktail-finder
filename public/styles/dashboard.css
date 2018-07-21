@@ -6,7 +6,7 @@ body {
   box-sizing: border-box;
   font-size: 16px;
   font-family: "Raleway", sans;
-  background-color: #1E1D21;
+  background-color: #1e1d21;
   text-align: center;
   color: white;
 }
@@ -26,7 +26,7 @@ h2 {
   display: flex;
   width: 100%;
   height: 150px;
-  background-color: #1E1D21;
+  background-color: #1e1d21;
 }
 
 .navbar ul {
@@ -47,7 +47,7 @@ h2 {
   width: 100%;
   height: 100vh;
   align-items: stretch;
-  background-color: #1E1D21;
+  background-color: #1e1d21;
 }
 
 /* ********* Side Bar ********* */
@@ -55,12 +55,19 @@ h2 {
 .sidebar {
   width: 0;
   height: 1051px;
-  background: linear-gradient(to bottom, #1e1d21, #232326, #29282a, #2e2e2f, #343434);
+  background: linear-gradient(
+    to bottom,
+    #1e1d21,
+    #232326,
+    #29282a,
+    #2e2e2f,
+    #343434
+  );
   color: white;
   text-align: center;
   transition: all 0.3s;
-  border-left: 2px solid #00FFFF;
-  border-top: solid 2px #1E1D21;
+  border-left: 2px solid #00ffff;
+  border-top: solid 2px #1e1d21;
 }
 
 .sidebar.active {
@@ -150,6 +157,10 @@ p {
   transition: 0.25s ease-in-out;
 }
 
+.sidebar-icon.open span {
+  background: #00ffff;
+}
+
 .sidebar-icon span:nth-child(even) {
   left: 50%;
   border-radius: 0 9px 9px 0;
@@ -223,16 +234,21 @@ p {
 
 /* ******************************** */
 
+.user-content-wrap {
+  width: 100%;
+  margin: 0 auto;
+  border-top: solid 2px #00ffff;
+}
+
 .user-content {
   display: flex;
   max-width: 100%;
-  margin: 10px auto;
-  border-top: solid 2px #00FFFF;
+  margin: 0 auto;
 }
 
 .user-content h1 {
   padding: 20px;
-  border-bottom: 2px solid #00FFFF;
+  border-bottom: 2px solid #00ffff;
 }
 
 /* Profile Content
@@ -250,7 +266,7 @@ p {
   color: white;
 }
 
-.deleteBtn{
+.deleteBtn {
   background: transparent;
   border: solid 1px white;
   color: white;
@@ -281,7 +297,7 @@ p {
 
 .btn {
   background: transparent;
-  border: solid 1px #00FFFF;
+  border: solid 1px #00ffff;
   color: white;
   cursor: pointer;
   border-radius: 5px;
@@ -297,15 +313,15 @@ p {
   height: 100%;
 }
 
-.renderedDrinks ul{
+.renderedDrinks ul {
   padding-left: 0px;
 }
 
-.renderedDrinks p{
+.renderedDrinks p {
   color: white;
 }
 
-#selectedDrink img{
+#selectedDrink img {
   max-width: 60%;
   padding-bottom: 16px;
 }
@@ -355,7 +371,7 @@ p {
   margin-bottom: 6px;
 }
 
-.createdDrink{
+.createdDrink {
   width: 100%;
   background-color: white;
   border: solid 1px black;
@@ -370,7 +386,7 @@ p {
 
 .sidebar a:hover {
   color: black;
-  background-color: #00FFFF;
+  background-color: #00ffff;
 }
 
 a,
@@ -387,16 +403,16 @@ a:focus {
 }
 
 .btn:hover {
-  background-color: #00FFFF;
+  background-color: #00ffff;
   color: black;
 }
 
-.deleteBtn:hover{
+.deleteBtn:hover {
   background-color: rgb(255, 40, 40);
   color: white;
 }
 
-.createdDrink:hover{
+.createdDrink:hover {
   cursor: pointer;
   background-color: rgb(170, 170, 170);
 }
