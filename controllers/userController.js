@@ -86,60 +86,89 @@ const updateProfile = (req, res) => {
 
 const addADrink = (req, res) => {
   let username = req.params.username;
-  let drinkId = req.params.drinkId;
+  let drinkId = req.params.drinkid;
+  console.log("Req drink id", drinkId);
 
-  db.User.findOne({ username: username }, (err, user) => {
-    db.Drink.findOne({ idDrink: drinkId }, (err, drink) => {
-      if (drink) {
-        console.log("Drink to add: ", drink);
-        for (let i = 0; i < user.savedDrinks.length; i++) {
-          if (parseInt(user.savedDrinks[i].idDrink) == drink.idDrink) {
+  db.User.findOne({ username: username })
+    .populate("savedDrinks", "strDrink idDrink")
+    .exec((err, user) => {
+      if (err) {
+        return cosole.log(err);
+      }
+      db.Drink.findOne({ idDrink: drinkId }, (err, drink) => {
+        if (err) {
+          return cosole.log(err);
+        }
+        if (drink) {
+          let match = false;
+          for (let i = 0; i < user.savedDrinks.length; i++) {
+            console.log("looping at ", i);
+            let id = user.savedDrinks[i].idDrink;
+            if (id == drink.idDrink) {
+              match = true;
+            }
+          }
+          console.log("still working");
+          if (match) {
+            console.log("Ids match");
+            res.json({ error: "Drink already saved" });
+            // return console.log("Ids match");
           } else {
             user.savedDrinks.push(drink);
             user.save();
+            res.json({ success: "Drink saved!" });
           }
-        }
-      } else {
-        console.log("Creating a new drink");
-        let newDrink = new db.Drink(req.body);
-        newDrink.save((err, drink) => {
-          if (err) {
-            console.log(err);
-            return err;
-          }
-          console.log("Saved ", drink);
+
+          console.log("out of loop");
+        } else {
+          console.log("Creating a new drink");
+          let newDrink = new db.Drink(req.body);
+          newDrink.save((err, drink) => {
+            if (err) {
+              console.log(err);
+              return err;
+            }
+            user.savedDrinks.push(drink);
+            user.save();
+            console.log("Saved ", drink);
+          });
+          // user.savedDrinks.push(newDrink);
+          // user.save();
           res.json(drink);
-        });
-        user.savedDrinks.push(newDrink);
-        user.save();
-      }
+        }
+      });
     });
-  });
 };
 
 // PUT /api/user/remove/:username/:drinkId
 
 const remove = (drinkToRemove, arr) => {
-  let i = arr.indexOf(drinkToRemove);
-  if (i >= 0) {
-    arr.splice(i, 1);
+  for (let i = 0; i < arr.length; i++) {
+    console.log("looping");
+    if (arr[i].idDrink == drinkToRemove.idDrink) {
+      arr.splice(i, 1);
+    }
   }
   return arr;
 };
 
 const removeADrink = (req, res) => {
   let username = req.params.username;
-  let drinkId = req.params.drinkId;
-  db.User.findOne({ username: username }, (err, user) => {
-    db.Drink.findOne({ idDrink: drinkId }, (err, drinkToRemove) => {
-      if (drinkToRemove) {
-        console.log("Drink to remove: ", drink);
-        remove(drinkToRemove, user.savedDrinks);
-        user.save();
-        res.status(200);
-      }
+  let drinkname = req.params.drinkname;
+  db.User.findOne({ username: username })
+    .populate("savedDrinks", "strDrink idDrink")
+    .exec((err, user) => {
+      db.Drink.findOne({ strDrink: drinkname }, (err, drinkToRemove) => {
+        console.log("test1");
+        if (drinkToRemove) {
+          console.log("test2");
+          console.log("Drink to remove: ", drinkToRemove);
+          remove(drinkToRemove, user.savedDrinks);
+          user.save();
+          res.status(200);
+        }
+      });
     });
-  });
 };
 
 // DELETE /api/users/:username

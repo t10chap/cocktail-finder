@@ -31,8 +31,7 @@ const displayDrink = response => {
   let drinkIndex = 0;
   let currentSearchSelection = $(".form-control").val();
 
-  $(".results").empty()
-    .append(` <div class="arrows">
+  $(".results").empty().append(` <div class="arrows">
                 <i class="fa fa-arrow-left fa-2x back" aria-hidden="true"></i>
                 <h3>Results</h3>
                 <i class="fa fa-arrow-right fa-2x forward" aria-hidden="true"></i>
@@ -168,7 +167,7 @@ const renderSavedDrinks = array => {
 
 // ********** Create database model **********
 const createModel = response => {
-  console.log("Attempting to create model");
+  console.log("Attempting to create model", response.drinks[0].idDrink);
   $.ajax({
     method: "PUT",
     url: `http://localhost:3000/api/user/add/${$("#username").text()}/${
