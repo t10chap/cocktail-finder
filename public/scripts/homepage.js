@@ -187,7 +187,8 @@ let searchByIdUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
 // ********** Listen for save click **********
 $("#results").on("click", "#save", function() {
   console.log("clicked save");
-  if (savedDrinks.indexOf($(this).data("value") > -1)) {
+  let index = savedDrinks.indexOf($(this).data("value"));
+  if (index >= 0) {
     console.log("Drink already exists");
   } else {
     savedDrinks.push($(this).data("value"));
