@@ -2,6 +2,7 @@ let url = "/api/";
 
 // $(document).ready(function() {
 $(".mainBtn").click(function() {
+  $(".mainBtn").fadeToggle(100);
   $(".formContainer").fadeToggle(900);
 });
 
@@ -66,3 +67,14 @@ $(".signin").click(function() {
       $("#upErrLbl").html("Passwords don't match")
     }
   });
+
+  // Smooth Scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
