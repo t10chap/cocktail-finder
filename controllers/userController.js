@@ -143,7 +143,9 @@ const addADrink = (req, res) => {
 const remove = (drinkToRemove, arr) => {
   for (let i = 0; i < arr.length; i++) {
     console.log("looping");
-    if (arr[i].idDrink == drinkToRemove.idDrink) {
+    if (arr[i].idDrink == drinkToRemove.idDrink && i == 0) {
+      arr.shift();
+    } else if (arr[i].idDrink == drinkToRemove.idDrink) {
       arr.splice(i, 1);
     }
   }
