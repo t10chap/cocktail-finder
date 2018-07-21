@@ -84,7 +84,11 @@ const renderSelectedDrink = response => {
   let drink = response;
   $("#selectedDrink").empty().append(`
    <h2>${drink.strDrink}</h2>
-   <img src="${drink.strDrinkThumb}">
+   ${
+     drink.strDrinkThumb === undefined
+       ? `<p>No current image</p>`
+       : `<img src="${drink.strDrinkThumb}">`
+   }
    <p>${drink.strInstructions}</p>
    <ul>
    </ul>
