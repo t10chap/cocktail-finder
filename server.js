@@ -52,7 +52,7 @@ app.get("/api/drinks/", controllers.drink.show);
 app.get("/api/drinks/:id", controllers.drink.find);
 
 app.post("/api/newuser", controllers.user.create);
-app.post("/api/newdrink", controllers.drink.create);
+app.post("/api/:user/newdrink", controllers.drink.create);
 
 app.put("/api/user/update/:username", controllers.user.updateProfile);
 app.put("/api/user/add/:username/:drinkid", controllers.user.addDrinks);
