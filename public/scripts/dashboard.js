@@ -154,7 +154,7 @@ $(".newDrinkForm").on("submit", function(e) {
   });
 });
 
-// *********** Delete button hover *************
+// *********** Delete button *************
 $("#delete").hover(
   function() {
     $(this).html("Delete my account!");
@@ -163,3 +163,17 @@ $("#delete").hover(
     $(this).html("Tired of drinking?");
   }
 );
+
+const deleteAccountSuccess = () => {
+  localStorage.clear();
+  window.location.href = "/";
+}
+
+$("#delete").on("click", function(){
+  $.ajax({
+    method: "DELETE",
+    url: `/api/users/${username}`,
+    success: deleteAccountSuccess,
+    error: error,
+  })
+})
