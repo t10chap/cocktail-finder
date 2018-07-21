@@ -258,7 +258,7 @@ p {
   height: 100%;
   display: flex;
   flex-direction: column;
-  margin: 15px;
+  margin: 20px;
 }
 
 .user-content h2 {
@@ -268,7 +268,7 @@ p {
 
 .deleteBtn {
   background: transparent;
-  border: solid 1px #00FFFF;
+  border: solid 1px #00ffff;
   color: white;
   cursor: pointer;
   border-radius: 5px;
@@ -279,7 +279,7 @@ p {
 .savedDrinks {
   width: 70%;
   height: 100%;
-  margin: 15px;
+  margin: 20px;
 }
 
 .user-content ul {
@@ -308,7 +308,7 @@ p {
 .renderedDrinks {
   display: flex;
   flex-direction: column;
-  margin: 15px;
+  margin: 20px;
   width: 70%;
   height: 100%;
 }
@@ -328,16 +328,18 @@ p {
 
 /* Create Drink Form
 ----------------------------------------------- */
-.newDrinkForm{
-  background-color: #1E1D21;
+.newDrinkForm {
+  background-color: #1e1d21;
 }
 
-.newDrinkForm input, textarea{
-  background-color: #1E1D21;
+.newDrinkForm input,
+textarea {
+  background-color: #1e1d21;
   color: white;
 }
 
-.newDrinkForm input::placeholder, textarea::placeholder{
+.newDrinkForm input::placeholder,
+textarea::placeholder {
   color: white;
 }
 
@@ -349,7 +351,7 @@ p {
 }
 
 .drinkName {
-  border: solid 1px #00FFFF;
+  border: solid 1px #00ffff;
 }
 
 .drinkInfo {
@@ -360,7 +362,7 @@ p {
 .drinkInstructions {
   margin-top: 10px;
   height: 80%;
-  border: solid 1px #00FFFF;
+  border: solid 1px #00ffff;
 }
 
 .drinkIngredients {
@@ -369,7 +371,7 @@ p {
 }
 
 .ingredients {
-  border: solid 1px #00FFFF;
+  border: solid 1px #00ffff;
   margin-bottom: 6px;
 }
 
@@ -380,23 +382,18 @@ p {
 }
 
 .portions {
-  border: solid 1px #00FFFF;
+  border: solid 1px #00ffff;
   margin-bottom: 6px;
 }
 
 .createdDrink {
   width: 100%;
   background: transparent;
-  border: solid 1px #00FFFF;
+  border: solid 1px #00ffff;
   color: white;
 }
 
 /* ********* Hover effects ********* */
-
-.sidebar button:hover {
-  background: white;
-  color: white;
-}
 
 .sidebar a:hover {
   color: black;
@@ -413,7 +410,7 @@ a:focus {
 
 .user-content li a:hover,
 .user-content li span:hover {
-  color: white;
+  color: #00ffff;
 }
 
 .btn:hover {
@@ -429,6 +426,6 @@ a:focus {
 
 .createdDrink:hover {
   cursor: pointer;
-  background-color: #00FFFF;
+  background-color: #00ffff;
   color: black;
 }
