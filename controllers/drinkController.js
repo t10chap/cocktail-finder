@@ -75,6 +75,8 @@ const createADrink = (req, res) => {
         };
         user.savedDrinks.push(newDrink);
         console.log("found the user", user);
+        console.log(user.savedDrinks.length);
+        user.save();
       })
 
       res.json(newDrink)

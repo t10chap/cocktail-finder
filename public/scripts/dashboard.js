@@ -67,7 +67,6 @@ $("#savedDrinksList").on("click", "#delete", function(e) {
   let drinkname = $(this)
     .prev()
     .text();
-  console.log(drinkname);
   $(this)
     .parent()
     .remove();
@@ -82,8 +81,6 @@ $("#savedDrinksList").on("click", "#delete", function(e) {
 
 // ********** Render selected drink ************
 const renderSelectedDrink = response => {
-  console.log("rendering...");
-
   let drink = response;
   $("#selectedDrink").empty().append(`
    <h2>${drink.strDrink}</h2>
@@ -92,9 +89,7 @@ const renderSelectedDrink = response => {
    <ul>
    </ul>
   `);
-
   let arrOfVals = Object.values(drink);
-
   for (let i = 10; i <= 23; i++) {
     if (
       arrOfVals[i] == "" ||
@@ -102,12 +97,9 @@ const renderSelectedDrink = response => {
       arrOfVals[i].length == 0
     ) {
     } else {
-      $("#selectedDrink ul").append(`
-              <li>${arrOfVals[i]} : ${arrOfVals[i + 15]}</li>
-              `);
+      $("#selectedDrink ul").append(`<li>${arrOfVals[i]} : ${arrOfVals[i + 15]}</li>`);
     }
   }
-  console.log("rendered!");
 };
 
 // *********** Create Drink and Render New Saved List Data *************
@@ -134,7 +126,6 @@ const createNewDrinkSuccess = () => {
 
 $("#savedDrinksList").on("click", "span", function() {
   let id = $(this).attr("id");
-  console.log(id);
   $.ajax({
     method: "GET",
     url: "/api/drinks/" + id,
