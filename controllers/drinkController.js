@@ -27,7 +27,7 @@ const findOneDrink = (req, res) => {
 };
 
 // POST /api/:user/newdrink
-let id = 0;
+let id = 1;
 const createADrink = (req, res) => {
   let username = req.params.user;
   console.log(req.body.name);

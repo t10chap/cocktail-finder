@@ -261,5 +261,4 @@ $.ajax({
 // ********** Sidebar logout button ************
 $("#logout").on("click", function() {
   localStorage.clear();
-  window.location.href = "/";
 });
