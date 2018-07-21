@@ -321,7 +321,7 @@ a:focus {
   margin: 16px 16px;
 }
 
-.drinkName{
+.drinkName {
   border: solid 1px black;
 }
 
@@ -330,7 +330,7 @@ a:focus {
   flex-direction: column;
 }
 
-.drinkInstructions{
+.drinkInstructions {
   margin-top: 10px;
   height: 80%;
   border: solid 1px black;
@@ -341,7 +341,7 @@ a:focus {
   flex-direction: column;
 }
 
-.ingredients{
+.ingredients {
   border: solid 1px black;
   margin-bottom: 6px;
 }
@@ -352,7 +352,7 @@ a:focus {
   margin-left: 4px;
 }
 
-.portions{
+.portions {
   border: solid 1px black;
   margin-bottom: 6px;
 }

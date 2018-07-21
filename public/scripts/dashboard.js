@@ -97,7 +97,9 @@ const renderSelectedDrink = response => {
       arrOfVals[i].length == 0
     ) {
     } else {
-      $("#selectedDrink ul").append(`<li>${arrOfVals[i]} : ${arrOfVals[i + 15]}</li>`);
+      $("#selectedDrink ul").append(
+        `<li>${arrOfVals[i]} : ${arrOfVals[i + 15]}</li>`
+      );
     }
   }
 };
@@ -109,20 +111,23 @@ const addNewDrinkToSavedList = response => {
   response.savedDrinks.forEach(drink => {
     $("#savedDrinksList").append(`
       <li "class="renderedDrink">
-      <span id="${drink.idDrink}">${drink.strDrink}</span> - <a id="delete" href="#">Remove</a>
+      <span id="${drink.idDrink}">${
+      drink.strDrink
+    }</span> - <a id="delete" href="#">Remove</a>
       </li>`);
   });
-  $('#idModal').modal('hide');
-}
+
+  $("#idModal").modal("hide");
+};
 
 const createNewDrinkSuccess = () => {
   $.ajax({
     method: "GET",
     url: `/api/users/${username}`,
     success: addNewDrinkToSavedList,
-    error: error,
-  })
-}
+    error: error
+  });
+};
 
 $("#savedDrinksList").on("click", "span", function() {
   let id = $(this).attr("id");
@@ -130,11 +135,11 @@ $("#savedDrinksList").on("click", "span", function() {
     method: "GET",
     url: "/api/drinks/" + id,
     success: renderSelectedDrink,
-    error: error,
+    error: error
   });
 });
 
-$(".newDrink").on("submit", function(e){
+$(".newDrink").on("submit", function(e) {
   e.preventDefault();
   let newDrinkData = $(this).serialize();
   $.ajax({
@@ -142,6 +147,16 @@ $(".newDrink").on("submit", function(e){
     url: `/api/${username}/newdrink`,
     data: newDrinkData,
     success: createNewDrinkSuccess,
-    error: error,
+    error: error
   });
 });
+
+// *********** Delete button hover *************
+$("#delete").hover(
+  function() {
+    $(this).html("Delete my account!");
+  },
+  function() {
+    $(this).html("Tired of drinking?");
+  }
+);

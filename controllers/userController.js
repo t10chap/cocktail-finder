@@ -132,8 +132,6 @@ const addADrink = (req, res) => {
             user.save();
             console.log("Saved ", drink);
           });
-          // user.savedDrinks.push(newDrink);
-          // user.save();
           res.json(drink);
         }
       });
