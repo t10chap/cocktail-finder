@@ -6,7 +6,8 @@ body {
   box-sizing: border-box;
   font-size: 16px;
   font-family: "Raleway", sans;
-  background-color: rgb(196, 196, 196);
+  background-color: #1E1D21;
+  color: white;
 }
 
 a {
@@ -33,7 +34,7 @@ li{
   display: flex;
   width: 100%;
   height: 150px;
-  background-color: black;
+  background-color: #1E1D21;
 }
 
 .navbar ul {
@@ -64,11 +65,11 @@ li{
   margin-bottom: -5000px;
   padding-bottom: 5000px;
   overflow: hidden;
-  background: black;
+  background: linear-gradient(to bottom, #1e1d21, #3d3c40, #5f5e61, #838384, #a9a9a9);
   color: white;
   text-align: center;
   transition: all 0.3s;
-  border-left: 2px solid white;
+  border-left: 2px solid #00FFFF;
 }
 
 .sidebar.active {
@@ -87,7 +88,7 @@ li{
 }
 
 .sidebar h5 {
-  border-top: 2px solid white;
+  border-top: 2px solid #00FFFF;
   padding-top: 10px;
 }
 
@@ -117,18 +118,17 @@ li{
 }
 
 p {
+  width: 100%;
   font-size: 1.1em;
   font-weight: 300;
   line-height: 1.7em;
-  color: #999;
 }
 
 .section-wrap {
   display: flex;
   flex-direction: column;
   width: 100%;
-  border-top: 2px solid white;
-  /* min-height: 100%; */
+  border-top: 2px solid #00FFFF;
 }
 
 /* ********* Seach ********* */
@@ -137,7 +137,7 @@ p {
   width: 100%;
   /* height: 40%; */
   align-self: flex-end;
-  background-color: rgb(196, 196, 196);
+  background-color: #1E1D21;
 }
 
 .search form {
@@ -149,6 +149,7 @@ p {
 
 .search label {
   font-size: 2em;
+  color: white;
 }
 
 .form-control {
@@ -159,6 +160,14 @@ p {
   width: 300px;
   font-size: 1em;
   padding-right: 0.2px;
+}
+
+.searchSubmit{
+  background: transparent;
+  color: white;
+  padding: 5px;
+  border: solid 1px #00FFFF;
+  border-radius: 5px;
 }
 
 /* ********* Results ********* */
@@ -189,12 +198,8 @@ p {
   height: auto;
   /* margin-left: 18.6%; */
   margin-bottom: 16px;
-  border-top: solid 2px black;
+  border-top: solid 2px #00FFFF;
   padding-top: 20px;
-}
-
-.data p{
-  color: black;
 }
 
 .data img {
@@ -231,7 +236,8 @@ section .data6 button{
 .saveBtn{
   margin-bottom: 20px;
   background: transparent;
-  border: solid 1px black;
+  border: solid 1px #00FFFF;
+  color: white;
   cursor: pointer;
   border-radius: 5px;
 }
@@ -259,8 +265,8 @@ section .data6 button{
   position: absolute;
   height: 8px;
   width: 50%;
-  background: white;
   opacity: 1;
+  background: white;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -294,6 +300,10 @@ section .data6 button{
 .sidebar-icon span:nth-child(5),
 .sidebar-icon span:nth-child(6) {
   top: 36px;
+}
+
+.sidebar-icon.open span{
+  background: #00FFFF;
 }
 
 .sidebar-icon.open span:nth-child(1),
@@ -351,7 +361,17 @@ section .data6 button{
 
 .sidebar a:hover {
   color: black;
-  background: white;
+  background-color: #00FFFF;
+}
+
+.searchSubmit:hover{
+  background-color: #00FFFF;
+  color: black;
+  cursor: pointer;
+}
+
+i:hover{
+  color: #00FFFF;
 }
 
 a,
@@ -363,6 +383,6 @@ a:focus {
 }
 
 .saveBtn:hover{
-  background-color: black;
-  color: white;
+  background-color: #00FFFF;
+  color: black;
 }
