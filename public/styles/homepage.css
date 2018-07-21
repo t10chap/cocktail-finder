@@ -90,6 +90,8 @@ li{
 .sidebar h5 {
   border-top: 2px solid #00FFFF;
   padding-top: 10px;
+  font-size: 26px;
+  text-decoration: underline;
 }
 
 .sidebar button {
@@ -216,7 +218,7 @@ p {
 .data6 .data{
   width: 30%;
   padding-bottom: 15px;
-  border: solid 1px black;
+  border: solid 1px #00FFFF;
 }
 
 section .data6 h6{

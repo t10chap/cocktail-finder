@@ -268,7 +268,7 @@ p {
 
 .deleteBtn {
   background: transparent;
-  border: solid 1px white;
+  border: solid 1px #00FFFF;
   color: white;
   cursor: pointer;
   border-radius: 5px;
@@ -328,6 +328,19 @@ p {
 
 /* Create Drink Form
 ----------------------------------------------- */
+.newDrinkForm{
+  background-color: #1E1D21;
+}
+
+.newDrinkForm input, textarea{
+  background-color: #1E1D21;
+  color: white;
+}
+
+.newDrinkForm input::placeholder, textarea::placeholder{
+  color: white;
+}
+
 .newDrink {
   display: flex;
   flex-direction: row;
@@ -336,7 +349,7 @@ p {
 }
 
 .drinkName {
-  border: solid 1px black;
+  border: solid 1px #00FFFF;
 }
 
 .drinkInfo {
@@ -347,7 +360,7 @@ p {
 .drinkInstructions {
   margin-top: 10px;
   height: 80%;
-  border: solid 1px black;
+  border: solid 1px #00FFFF;
 }
 
 .drinkIngredients {
@@ -356,7 +369,7 @@ p {
 }
 
 .ingredients {
-  border: solid 1px black;
+  border: solid 1px #00FFFF;
   margin-bottom: 6px;
 }
 
@@ -367,14 +380,15 @@ p {
 }
 
 .portions {
-  border: solid 1px black;
+  border: solid 1px #00FFFF;
   margin-bottom: 6px;
 }
 
 .createdDrink {
   width: 100%;
-  background-color: white;
-  border: solid 1px black;
+  background: transparent;
+  border: solid 1px #00FFFF;
+  color: white;
 }
 
 /* ********* Hover effects ********* */
@@ -410,9 +424,11 @@ a:focus {
 .deleteBtn:hover {
   background-color: rgb(255, 40, 40);
   color: white;
+  border: solid 1px white;
 }
 
 .createdDrink:hover {
   cursor: pointer;
-  background-color: rgb(170, 170, 170);
+  background-color: #00FFFF;
+  color: black;
 }
