@@ -117,6 +117,7 @@ const displayDrinksList = response => {
 const render = (arr, index, numberToAppend) => {
   $(".rendered-results").empty();
   for (let i = index; i < index + numberToAppend; i++) {
+    let id = arr[i].idDrink;
     $(".rendered-results").append(`
         <div class="data">
         <h6>${arr[i].strDrink}</h6>
@@ -124,8 +125,7 @@ const render = (arr, index, numberToAppend) => {
         <p>${
           arr[i].strInstructions === undefined ? "" : arr[i].strInstructions
         }</p>
-
-        <ul>
+        <ul id="${id}-ingredients">
         </ul>
         <button id="save" class="saveBtn" data-value="${arr[i].strDrink}"
         data-id="${arr[i].idDrink}">Save!</button>
@@ -135,15 +135,15 @@ const render = (arr, index, numberToAppend) => {
     console.log(arr[i].idDrink);
     let arrOfVals = Object.values(arr[i]);
 
-    for (let i = 9; i <= 23; i++) {
+    for (let j = 9; j <= 23; j++) {
       if (
-        arrOfVals[i] == "" ||
-        arrOfVals[i] == null ||
-        arrOfVals[i].length == 0
+        arrOfVals[j] == "" ||
+        arrOfVals[j] == null ||
+        arrOfVals[j].length == 0
       ) {
       } else {
-        $(".rendered-results ul").append(`
-              <li>${arrOfVals[i]} : ${arrOfVals[i + 15]}</li>
+        $(`#${id}-ingredients`).append(`
+              <li>${arrOfVals[j]} : ${arrOfVals[j + 15]}</li>
               `);
       }
     }
@@ -187,9 +187,12 @@ let searchByIdUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
 // ********** Listen for save click **********
 $("#results").on("click", "#save", function() {
   console.log("clicked save");
-  savedDrinks.push($(this).data("value"));
-  renderSavedDrinks(savedDrinks);
-
+  if (savedDrinks.indexOf($(this).data("value") > -1)) {
+    console.log("Drink already exists");
+  } else {
+    savedDrinks.push($(this).data("value"));
+    renderSavedDrinks(savedDrinks);
+  }
   $.ajax({
     method: "GET",
     url: searchByIdUrl + $(this).data("id"),
