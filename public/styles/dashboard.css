@@ -4,7 +4,7 @@
 
 body {
   box-sizing: border-box;
-  font: 16px;
+  font-size: 16px;
   font-family: "Raleway", sans;
   background-color: rgb(196, 196, 196);
   text-align: center;
@@ -218,36 +218,6 @@ p {
   top: 29px;
 }
 
-/* ********* Hover effects ********* */
-
-.sidebar button:hover {
-  background: white;
-  color: black;
-}
-
-.sidebar a:hover {
-  color: black;
-  background: white;
-}
-
-a,
-a:hover,
-a:focus {
-  color: inherit;
-  text-decoration: none;
-  transition: all 0.3s;
-}
-
-.user-content li a:hover,
-.user-content li span:hover {
-  color: white;
-}
-
-.btn:hover {
-  background-color: white;
-  color: black;
-}
-
 /* ******************************** */
 
 .user-content {
@@ -276,6 +246,13 @@ a:focus {
   color: black;
 }
 
+.deleteBtn{
+  background: transparent;
+  border: solid 1px black;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 /* Favorite Drinks Content
  ---------------------------------------------- */
 .savedDrinks {
@@ -298,9 +275,10 @@ a:focus {
 }
 
 .btn {
-  color: black;
-  background-color: transparent;
-  border: 2px solid black;
+  background: transparent;
+  border: solid 1px black;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 /* Rendered Data
@@ -309,9 +287,23 @@ a:focus {
   display: flex;
   flex-direction: column;
   margin: 15px;
-  width: 75vw;
+  max-width: 32%;
   height: 100%;
 }
+
+.renderedDrinks ul{
+  padding-left: 0px;
+}
+
+.renderedDrinks p{
+  color: black;
+}
+
+#selectedDrink img{
+  max-width: 60%;
+  padding-bottom: 16px;
+}
+
 /* Create Drink Form
 ----------------------------------------------- */
 .newDrink {
@@ -355,4 +347,50 @@ a:focus {
 .portions {
   border: solid 1px black;
   margin-bottom: 6px;
+}
+
+.createdDrink{
+  width: 100%;
+  background-color: rgb(210, 210, 210);
+  border: solid 1px black;
+}
+
+/* ********* Hover effects ********* */
+
+.sidebar button:hover {
+  background: white;
+  color: black;
+}
+
+.sidebar a:hover {
+  color: black;
+  background: white;
+}
+
+a,
+a:hover,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.user-content li a:hover,
+.user-content li span:hover {
+  color: white;
+}
+
+.btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.deleteBtn:hover{
+  background-color: rgb(255, 40, 40);
+  color: white;
+}
+
+.createdDrink:hover{
+  cursor: pointer;
+  background-color: rgb(170, 170, 170);
 }

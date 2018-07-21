@@ -143,7 +143,7 @@ $("#savedDrinksList").on("click", "span", function() {
   });
 });
 
-$(".newDrink").on("submit", function(e) {
+$(".newDrinkForm").on("submit", function(e) {
   e.preventDefault();
   let newDrinkData = $(this).serialize();
   $.ajax({
