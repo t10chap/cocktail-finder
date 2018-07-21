@@ -27,10 +27,10 @@ const findOneDrink = (req, res) => {
 };
 
 // POST /api/:user/newdrink
-
+let id = 0;
 const createADrink = (req, res) => {
   let username = req.params.user;
-  console.log(req.body.name)
+  console.log(req.body.name);
   db.Drink.findOne({ strDrink: req.body.name }, (err, foundDrink) => {
     if (err) {
       console.log(err);
@@ -43,6 +43,7 @@ const createADrink = (req, res) => {
       console.log("Response", req.body);
       let newDrink = new db.Drink({
         strDrink: req.body.name,
+        idDrink: ++id,
         strInstructions: req.body.instructions,
         strIngredient1: req.body.ingredient1,
         strIngredient2: req.body.ingredient2,
@@ -63,23 +64,23 @@ const createADrink = (req, res) => {
         strMeasure7: req.body.measure7,
         strMeasure8: req.body.measure8,
         strMeasure9: req.body.measure9,
-        strMeasure10: req.body.measure10,
+        strMeasure10: req.body.measure10
       });
 
       newDrink.save();
       console.log("finding the user");
-      db.User.findOne({ username: username}, (err, user) => {
+      db.User.findOne({ username: username }, (err, user) => {
         if (err) {
           console.log(err);
-          return err
-        };
+          return err;
+        }
         user.savedDrinks.push(newDrink);
         console.log("found the user", user);
         console.log(user.savedDrinks.length);
         user.save();
-      })
+      });
 
-      res.json(newDrink)
+      res.json(newDrink);
     }
   });
 };
