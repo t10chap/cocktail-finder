@@ -76,7 +76,7 @@ li {
   color: white;
   text-align: center;
   transition: all 0.3s;
-  border-left: 2px solid #00ffff;
+  border-left: 2px solid #f6cc5c;
 }
 
 .sidebar.active {
