@@ -95,7 +95,7 @@ li {
 }
 
 .sidebar h5 {
-  border-top: 2px solid #00ffff;
+  border-top: 2px solid #f6cc5c;
   padding-top: 10px;
   font-size: 1.6em;
 }
@@ -136,7 +136,7 @@ p {
   display: flex;
   flex-direction: column;
   width: 100%;
-  border-top: 2px solid #00ffff;
+  border-top: 2px solid #f6cc5c;
 }
 
 /* ********* Seach ********* */
@@ -174,7 +174,7 @@ p {
   background: transparent;
   color: white;
   padding: 5px;
-  border: solid 1px #00ffff;
+  border: solid 1px #f6cc5c;
   border-radius: 5px;
 }
 
@@ -206,7 +206,7 @@ p {
   height: auto;
   /* margin-left: 18.6%; */
   margin-bottom: 16px;
-  border-top: solid 2px #00ffff;
+  border-top: solid 2px #f6cc5c;
   padding-top: 20px;
 }
 
@@ -224,7 +224,7 @@ p {
 .data6 .data {
   width: 30%;
   padding-bottom: 15px;
-  border: solid 1px #00ffff;
+  border: solid 1px #f6cc5c;
 }
 
 section .data6 h6 {
@@ -244,7 +244,7 @@ section .data6 button {
 .saveBtn {
   margin-bottom: 20px;
   background: transparent;
-  border: solid 1px #00ffff;
+  border: solid 1px #f6cc5c;
   color: white;
   cursor: pointer;
   border-radius: 5px;
@@ -311,7 +311,7 @@ section .data6 button {
 }
 
 .sidebar-icon.open span {
-  background: #00ffff;
+  background: #f6cc5c;
 }
 
 .sidebar-icon.open span:nth-child(1),
@@ -369,17 +369,17 @@ section .data6 button {
 
 .sidebar a:hover {
   color: black;
-  background-color: #00ffff;
+  background-color: #f6cc5c;
 }
 
 .searchSubmit:hover {
-  background-color: #00ffff;
+  background-color: #f6cc5c;
   color: black;
   cursor: pointer;
 }
 
 i:hover {
-  color: #00ffff;
+  color: #f6cc5c;
 }
 
 a,
@@ -391,6 +391,6 @@ a:focus {
 }
 
 .saveBtn:hover {
-  background-color: #00ffff;
+  background-color: #f6cc5c;
   color: black;
 }
