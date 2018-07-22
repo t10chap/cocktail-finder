@@ -33,7 +33,7 @@ let controllers = require("./controllers");
 
 // HTML route
 
-app.get("https://cocktailfinder.herokuapp.com/", (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile("views/login.html", { root: __dirname });
 });
 

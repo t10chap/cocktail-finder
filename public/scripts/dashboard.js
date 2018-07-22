@@ -167,13 +167,13 @@ $("#delete").hover(
 const deleteAccountSuccess = () => {
   localStorage.clear();
   window.location.href = "/";
-}
+};
 
-$("#delete").on("click", function(){
+$("#delete").on("click", function() {
   $.ajax({
     method: "DELETE",
     url: `/api/users/${username}`,
     success: deleteAccountSuccess,
-    error: error,
-  })
-})
+    error: error
+  });
+});
