@@ -170,9 +170,7 @@ const createModel = response => {
   console.log("Attempting to create model", response.drinks[0].idDrink);
   $.ajax({
     method: "PUT",
-    url: `https://cocktailfinder.herokuapp.com/api/user/add/${$(
-      "#username"
-    ).text()}/${response.drinks[0].idDrink}`,
+    url: `/api/user/add/${$("#username").text()}/${response.drinks[0].idDrink}`,
     data: response.drinks[0],
     success: function() {
       console.log("Created the model!");
@@ -253,7 +251,7 @@ const renderExistingDrinks = response => {
 
 $.ajax({
   method: "GET",
-  url: "https://cocktailfinder.herokuapp.com/api/users/" + username,
+  url: "/api/users/" + username,
   success: renderExistingDrinks,
   error: displayError
 });
