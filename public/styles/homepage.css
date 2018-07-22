@@ -6,7 +6,7 @@ body {
   box-sizing: border-box;
   font-size: 16px;
   font-family: "Raleway", sans;
-  background-color: #1E1D21;
+  background-color: #1e1d21;
   color: white;
 }
 
@@ -21,12 +21,12 @@ h2 {
   padding-left: 15px;
 }
 
-ul{
+ul {
   list-style-type: none;
   padding-left: 0;
 }
 
-li{
+li {
   line-height: 30px;
 }
 
@@ -34,7 +34,7 @@ li{
   display: flex;
   width: 100%;
   height: 150px;
-  background-color: #1E1D21;
+  background-color: #1e1d21;
 }
 
 .navbar ul {
@@ -65,11 +65,18 @@ li{
   margin-bottom: -5000px;
   padding-bottom: 5000px;
   overflow: hidden;
-  background: linear-gradient(to bottom, #1e1d21, #3d3c40, #5f5e61, #838384, #a9a9a9);
+  background: linear-gradient(
+    to bottom,
+    #1e1d21,
+    #3d3c40,
+    #5f5e61,
+    #838384,
+    #a9a9a9
+  );
   color: white;
   text-align: center;
   transition: all 0.3s;
-  border-left: 2px solid #00FFFF;
+  border-left: 2px solid #00ffff;
 }
 
 .sidebar.active {
@@ -88,10 +95,9 @@ li{
 }
 
 .sidebar h5 {
-  border-top: 2px solid #00FFFF;
+  border-top: 2px solid #00ffff;
   padding-top: 10px;
-  font-size: 26px;
-  text-decoration: underline;
+  font-size: 1.6em;
 }
 
 .sidebar button {
@@ -130,7 +136,7 @@ p {
   display: flex;
   flex-direction: column;
   width: 100%;
-  border-top: 2px solid #00FFFF;
+  border-top: 2px solid #00ffff;
 }
 
 /* ********* Seach ********* */
@@ -139,7 +145,7 @@ p {
   width: 100%;
   /* height: 40%; */
   align-self: flex-end;
-  background-color: #1E1D21;
+  background-color: #1e1d21;
 }
 
 .search form {
@@ -164,11 +170,11 @@ p {
   padding-right: 0.2px;
 }
 
-.searchSubmit{
+.searchSubmit {
   background: transparent;
   color: white;
   padding: 5px;
-  border: solid 1px #00FFFF;
+  border: solid 1px #00ffff;
   border-radius: 5px;
 }
 
@@ -200,7 +206,7 @@ p {
   height: auto;
   /* margin-left: 18.6%; */
   margin-bottom: 16px;
-  border-top: solid 2px #00FFFF;
+  border-top: solid 2px #00ffff;
   padding-top: 20px;
 }
 
@@ -210,35 +216,35 @@ p {
   padding-bottom: 12px;
 }
 
-.data h6{
+.data h6 {
   font-size: 1.5em;
   margin: 10px 0 -10px;
 }
 
-.data6 .data{
+.data6 .data {
   width: 30%;
   padding-bottom: 15px;
-  border: solid 1px #00FFFF;
+  border: solid 1px #00ffff;
 }
 
-section .data6 h6{
+section .data6 h6 {
   font-size: 30px;
 }
 
-section .data6 img{
+section .data6 img {
   height: 50%;
   width: 50%;
 }
 
-section .data6 button{
+section .data6 button {
   height: 15%;
   width: 20%;
 }
 
-.saveBtn{
+.saveBtn {
   margin-bottom: 20px;
   background: transparent;
-  border: solid 1px #00FFFF;
+  border: solid 1px #00ffff;
   color: white;
   cursor: pointer;
   border-radius: 5px;
@@ -304,8 +310,8 @@ section .data6 button{
   top: 36px;
 }
 
-.sidebar-icon.open span{
-  background: #00FFFF;
+.sidebar-icon.open span {
+  background: #00ffff;
 }
 
 .sidebar-icon.open span:nth-child(1),
@@ -363,17 +369,17 @@ section .data6 button{
 
 .sidebar a:hover {
   color: black;
-  background-color: #00FFFF;
+  background-color: #00ffff;
 }
 
-.searchSubmit:hover{
-  background-color: #00FFFF;
+.searchSubmit:hover {
+  background-color: #00ffff;
   color: black;
   cursor: pointer;
 }
 
-i:hover{
-  color: #00FFFF;
+i:hover {
+  color: #00ffff;
 }
 
 a,
@@ -384,7 +390,7 @@ a:focus {
   transition: all 0.3s;
 }
 
-.saveBtn:hover{
-  background-color: #00FFFF;
+.saveBtn:hover {
+  background-color: #00ffff;
   color: black;
 }
