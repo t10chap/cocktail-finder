@@ -51,7 +51,7 @@ const renderUserData = response => {
 
 $.ajax({
   method: "GET",
-  url: "api/users/" + username,
+  url: "https://cocktailfinder.herokuapp.com/api/users/" + username,
   success: renderUserData,
   error: error
 });
@@ -72,7 +72,7 @@ $("#savedDrinksList").on("click", "#delete", function(e) {
 
   $.ajax({
     method: "PUT",
-    url: `api/user/remove/${username}/${drinkname}`,
+    url: `https://cocktailfinder.herokuapp.com/api/user/remove/${username}/${drinkname}`,
     success: removeSuccess,
     error: error
   });
@@ -81,13 +81,13 @@ $("#savedDrinksList").on("click", "#delete", function(e) {
 // ********** Render selected drink ************
 const renderSelectedDrink = response => {
   let drink = response;
+  let image =
+    drink.strDrinkThumb === undefined
+      ? `<p>No current image</p>`
+      : `<img src="${drink.strDrinkThumb}">`;
   $("#selectedDrink").empty().append(`
    <h2>${drink.strDrink}</h2>
-   ${
-     drink.strDrinkThumb === undefined
-       ? `<p>No current image</p>`
-       : `<img src="${drink.strDrinkThumb}">`
-   }
+   ${image}
    <p>${drink.strInstructions}</p>
    <ul>
    </ul>
@@ -126,7 +126,7 @@ const addNewDrinkToSavedList = response => {
 const createNewDrinkSuccess = () => {
   $.ajax({
     method: "GET",
-    url: `/api/users/${username}`,
+    url: `https://cocktailfinder.herokuapp.com/api/users/${username}`,
     success: addNewDrinkToSavedList,
     error: error
   });
@@ -136,7 +136,7 @@ $("#savedDrinksList").on("click", "span", function() {
   let id = $(this).attr("id");
   $.ajax({
     method: "GET",
-    url: "/api/drinks/" + id,
+    url: "https://cocktailfinder.herokuapp.com/api/drinks/" + id,
     success: renderSelectedDrink,
     error: error
   });
@@ -147,7 +147,7 @@ $(".newDrinkForm").on("submit", function(e) {
   let newDrinkData = $(this).serialize();
   $.ajax({
     method: "POST",
-    url: `/api/${username}/newdrink`,
+    url: `https://cocktailfinder.herokuapp.com/api/${username}/newdrink`,
     data: newDrinkData,
     success: createNewDrinkSuccess,
     error: error
@@ -172,7 +172,7 @@ const deleteAccountSuccess = () => {
 $("#delete").on("click", function() {
   $.ajax({
     method: "DELETE",
-    url: `/api/users/${username}`,
+    url: `https://cocktailfinder.herokuapp.com/api/users/${username}`,
     success: deleteAccountSuccess,
     error: error
   });
