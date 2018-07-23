@@ -93,11 +93,11 @@ const addADrink = (req, res) => {
     .populate("savedDrinks", "strDrink idDrink")
     .exec((err, user) => {
       if (err) {
-        return cosole.log(err);
+        return console.log(err);
       }
       db.Drink.findOne({ idDrink: drinkId }, (err, drink) => {
         if (err) {
-          return cosole.log(err);
+          return console.log(err);
         }
         if (drink) {
           let match = false;
