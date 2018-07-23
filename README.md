@@ -14,7 +14,7 @@
 * Node.js
 * Express
 * MongoDB
-* Mongoose.  
+* Mongoose
 
 ## Existing Features
 
