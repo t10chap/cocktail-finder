@@ -37,7 +37,7 @@
 ## Authors
 
 * [Gabriel Ng](https://github.com/gabe-ng)
-* [Tevin Rawls](https://git.generalassemb.ly/t10chap)
+* [Tevin Rawls](https://github.com/t10chap)
 
 ## Acknowledgements
 
