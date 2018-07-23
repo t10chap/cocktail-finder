@@ -25,7 +25,7 @@
 
 ## Installation
 
-> To run this app on your local device, fork or clone the repository [here](https://git.generalassemb.ly/gabe-ng/cocktail-finder). On your local computer, navigate to the project directory within your terminal and run `npm i` to install all required dependencies. From there, run `node server.js`. The application should be available on localhost:3000.
+> To run this app on your local device, fork or clone the repository [here](https://git.generalassemb.ly/gabe-ng/cocktail-finder). On your local computer, navigate to the project directory within your terminal and run `npm i` to install all required dependencies. Then open a separate window in the same directory and start up Mongo DB with `mongod`. From there, run `node server.js`. The application should be available on localhost:3000.
 
 ## Recognition and Thanks
 
