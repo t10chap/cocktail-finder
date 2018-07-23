@@ -295,12 +295,13 @@ p {
 }
 
 .user-content ul {
-  align-self: center;
   list-style: none;
 }
 
 .user-content li {
   align-self: center;
+  text-align: center;
+  margin: 0 auto;
   font-size: 1.3em;
   padding-top: 10px;
 }

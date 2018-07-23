@@ -1,7 +1,7 @@
 // *********** Access username from local storage **********
 var username = localStorage.getItem("username");
 // ********** Render username **********
-$("#username").html(`Hello ${username}`);
+$("#username").html(username);
 
 // ********** User saved drinks **********
 let savedDrinks = [];
