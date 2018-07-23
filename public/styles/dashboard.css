@@ -3,6 +3,7 @@
 /* ********* General Styles ********* */
 
 body {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 16px;
   font-family: "Raleway", sans;
@@ -28,6 +29,8 @@ header h2 {
 }
 
 .navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
   height: 90px;
@@ -35,7 +38,10 @@ header h2 {
 }
 
 .navbar ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-item-align: end;
   align-self: flex-end;
   list-style: none;
 }
@@ -47,10 +53,17 @@ header h2 {
 /* ********* Main wrapper ********* */
 
 .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
   width: 100%;
   height: 100vh;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
   align-items: stretch;
   background-color: #1e1d21;
 }
@@ -60,6 +73,32 @@ header h2 {
 .sidebar {
   width: 0;
   height: 1051px;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#1e1d21),
+    color-stop(#232326),
+    color-stop(#29282a),
+    color-stop(#2e2e2f),
+    to(#343434)
+  );
+  background: -webkit-linear-gradient(
+    top,
+    #1e1d21,
+    #232326,
+    #29282a,
+    #2e2e2f,
+    #343434
+  );
+  background: -o-linear-gradient(
+    top,
+    #1e1d21,
+    #232326,
+    #29282a,
+    #2e2e2f,
+    #343434
+  );
   background: linear-gradient(
     to bottom,
     #1e1d21,
@@ -70,6 +109,8 @@ header h2 {
   );
   color: white;
   text-align: center;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
   transition: all 0.3s;
   border-left: 2px solid #f6cc5c;
   border-top: solid 2px #1e1d21;
@@ -135,11 +176,9 @@ p {
   position: relative;
   margin: 15px auto;
   -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
   transform: rotate(0deg);
   -webkit-transition: 0.5s ease-in-out;
-  -moz-transition: 0.5s ease-in-out;
   -o-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   cursor: pointer;
@@ -153,11 +192,9 @@ p {
   background: white;
   opacity: 1;
   -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
   transform: rotate(0deg);
   -webkit-transition: 0.25s ease-in-out;
-  -moz-transition: 0.25s ease-in-out;
   -o-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
 }
@@ -194,16 +231,14 @@ p {
 .sidebar-icon.open span:nth-child(1),
 .sidebar-icon.open span:nth-child(6) {
   -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
 .sidebar-icon.open span:nth-child(2),
 .sidebar-icon.open span:nth-child(5) {
   -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
 
@@ -246,6 +281,8 @@ p {
 }
 
 .user-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   max-width: 100%;
   margin: 0 auto;
@@ -253,9 +290,10 @@ p {
 
 .user-content h1 {
   font-size: 1.6em;
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
   max-width: 60%;
-  /* margin-left: 100px; */
   padding: 20px 0 10px;
   border-bottom: 2px solid #f6cc5c;
 }
@@ -265,7 +303,12 @@ p {
 .profile {
   width: 60%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   margin: 20px;
 }
@@ -277,6 +320,8 @@ p {
 }
 
 .deleteBtn {
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
   background: transparent;
   border: solid 1px #f6cc5c;
@@ -290,7 +335,12 @@ p {
 /* Favorite Drinks Content
  ---------------------------------------------- */
 .savedDrinks {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   width: 70%;
   height: 100%;
@@ -302,6 +352,8 @@ p {
 }
 
 .user-content li {
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
   text-align: center;
   margin-left: -30px;
@@ -314,6 +366,8 @@ p {
 }
 
 .btn {
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
   align-self: center;
   background: transparent;
   border: solid 1px #f6cc5c;
@@ -326,7 +380,12 @@ p {
 /* Rendered Data
 ----------------------------------------------- */
 .renderedDrinks {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   margin: 20px;
   width: 70%;
@@ -358,14 +417,35 @@ textarea {
   color: white;
 }
 
+.newDrinkForm input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: white;
+}
+
+.newDrinkForm input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: white;
+}
+
+.newDrinkForm input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  color: white;
+}
+
 .newDrinkForm input::placeholder,
 textarea::placeholder {
   color: white;
 }
 
 .newDrink {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
   margin: 16px 16px;
 }
@@ -375,7 +455,12 @@ textarea::placeholder {
 }
 
 .drinkInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 
@@ -386,7 +471,12 @@ textarea::placeholder {
 }
 
 .drinkIngredients {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
 }
 
@@ -396,7 +486,12 @@ textarea::placeholder {
 }
 
 .drinkPortions {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   margin-left: 4px;
 }
@@ -425,6 +520,8 @@ a:hover,
 a:focus {
   color: inherit;
   text-decoration: none;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
   transition: all 0.3s;
 }
 

@@ -8,7 +8,12 @@ html {
 }
 
 .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   margin-top: 80px;
   width: 100%;
@@ -37,6 +42,8 @@ html {
 
 body {
   font-family: "Raleway", sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
   -ms-flex-pack: center;
@@ -87,6 +94,7 @@ body {
 
 .form .form-control {
   position: relative;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   height: auto;
   padding: 10px;
