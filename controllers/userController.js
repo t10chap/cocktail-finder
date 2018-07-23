@@ -112,13 +112,11 @@ const addADrink = (req, res) => {
           if (match) {
             console.log("Ids match");
             res.json({ error: "Drink already saved" });
-            // return console.log("Ids match");
           } else {
             user.savedDrinks.push(drink);
             user.save();
             res.json({ success: "Drink saved!" });
           }
-
           console.log("out of loop");
         } else {
           console.log("Creating a new drink");
