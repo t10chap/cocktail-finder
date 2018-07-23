@@ -15,13 +15,16 @@ a {
   color: white;
 }
 
-/* ********* Header ********* */
 h2 {
   color: white;
   font-size: 2.2em;
-  font-weight: 600;
   padding-left: 15px;
   margin: 0;
+}
+
+/* ********* Header ********* */
+header h2 {
+  font-weight: 600;
 }
 
 .navbar {
@@ -301,8 +304,8 @@ p {
 .user-content li {
   align-self: center;
   text-align: center;
-  margin: 0 auto;
-  font-size: 1.3em;
+  margin-left: -30px;
+  font-size: 1.1em;
   padding-top: 10px;
 }
 
