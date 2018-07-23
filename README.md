@@ -30,4 +30,4 @@
 ## Recognition and Thanks
 
 > A special thanks to [The Cocktail DB](https://www.thecocktaildb.com/) for providing the api for an expansive database of cocktails.
-> Also a special thanks to [Kenny Bushman](https://github.com/kbbushman) and Isha Arora. 
+> Also a special thanks to [Kenny Bushman](https://github.com/kbbushman) and Isha Arora for all their guidance/assistance in creating this app.
